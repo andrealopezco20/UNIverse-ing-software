@@ -85,7 +85,82 @@ const FollowersCard = () => {
 
 export default FollowersCard
 ```
+* __Ejemplo 2__
 
+Es un código (`InfoCard.jsx`) muy conciso y compacto, priorizando la reducción de longitud al máximo. Algunas características específicas del estilo de Code Golf presentes en el código:
+
+Uso de nombres de variables muy cortos: Por ejemplo, modalOpened se podría haber llamado m o o, y setModalOpened se podría haber llamado s. Sin embargo, aún se utiliza una versión más larga de los nombres de variables, lo cual es un signo de consideración por la legibilidad.
+
+Colocación de componentes JSX en la misma línea: Los elementos JSX están escritos en una sola línea, lo cual es común en Code Golf para reducir la cantidad de líneas en el código.
+
+Evitar saltos de línea innecesarios: El código evita agregar saltos de línea innecesarios para mantenerlo compacto y reducir el número total de líneas.
+
+Uso de funciones flecha y desestructuración: Se utilizan funciones flecha y desestructuración para mantener el código breve.
+
+Mínimo espacio en blanco: El código evita el uso excesivo de espacios en blanco, lo que ayuda a reducir la longitud del código.
+
+En resumen, el código proporcionado efectivamente sigue el estilo de programación de Code Golf. Es un ejemplo de código muy conciso y optimizado para reducir la longitud al máximo, aunque sigue siendo lo suficientemente legible como para entender su funcionalidad. El estilo de Code Golf es apreciado en entornos donde se premia la brevedad del código y no se enfoca tanto en la legibilidad para propósitos prácticos y de mantenimiento.
+
+```jsx
+import React, { useState } from "react";
+import "./InfoCard.css";
+import { UilPen } from "@iconscout/react-unicons";
+import ProfileModal from "../ProfileModal.jsx/ProfileModal";
+
+const InfoCard = () => {
+  // Definición del estado local 'modalOpened' utilizando useState
+  const [modalOpened, setModalOpened] = useState(false);
+
+  return (
+    <div className="InfoCard">
+      <div className="infoHead">
+        <h4>Your Info</h4>
+        <div>
+          {/* Icono de lápiz utilizando el componente 'UilPen' */}
+          <UilPen
+            width="2rem"
+            height="1.2rem"
+            onClick={() => setModalOpened(true)}
+          />
+          {/* Componente 'ProfileModal' para mostrar un modal */}
+          <ProfileModal
+            modalOpened={modalOpened}
+            setModalOpened={setModalOpened}
+          />
+        </div>
+      </div>
+
+      {/* Bloques de información */}
+      <div className="info">
+        <span>
+          <b>Status </b>
+        </span>
+        <span>in Relationship</span>
+      </div>
+
+      <div className="info">
+        <span>
+          <b>Lives in </b>
+        </span>
+        <span>Multan</span>
+      </div>
+
+      <div className="info">
+        <span>
+          <b>Works at </b>
+        </span>
+        <span>Zainkeepscode inst</span>
+      </div>
+
+      {/* Botón de logout */}
+      <button className="button logout-button">Logout</button>
+    </div>
+  );
+};
+
+export default InfoCard;
+```
+  
 ## 3. Estilo de Programación Pipeline
 El estilo de programación "Pipeline" se basa en la idea de construir una serie de pasos o etapas conectados en secuencia, donde el resultado de cada paso se utiliza como entrada para el siguiente. Es similar a cómo fluye un líquido a través de un tubo, de ahí el nombre "Pipeline".
 
