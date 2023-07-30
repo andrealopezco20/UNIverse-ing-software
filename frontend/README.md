@@ -37,7 +37,7 @@ Legibilidad: Al estar organizado en una secuencia lógica, el código escrito en
 
 Ideal para operaciones en serie: Este estilo es especialmente útil cuando se requiere realizar una serie de operaciones o transformaciones en un conjunto de datos.
 
-__EJEMPLOS__
+__EJEMPLOS IMPLEMENTADOS EN EL PROYECTO__
 
 * __Ejemplo 1__
 
@@ -104,6 +104,8 @@ const LogIn = () => {
 ```
 
 En esta implementación, `Auth` representa la primera etapa del pipeline, que renderiza el contenedor principal y luego pasa el control a la siguiente etapa, `LogIn`, que renderiza la interfaz de inicio de sesión. En una aplicación más compleja, podríamos tener más etapas, como la interfaz de registro `SignUp` o cualquier otra página que forme parte de la autenticación.
+
+* __Ejemplo 2__
 
 En el código `RightSide.jsx`, podemos identificar las siguientes etapas del pipeline:
 
