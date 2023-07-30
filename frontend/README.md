@@ -101,6 +101,65 @@ const LogIn = () => {
 
 En esta implementación, `Auth` representa la primera etapa del pipeline, que renderiza el contenedor principal y luego pasa el control a la siguiente etapa, `LogIn`, que renderiza la interfaz de inicio de sesión. En una aplicación más compleja, podríamos tener más etapas, como la interfaz de registro `SignUp` o cualquier otra página que forme parte de la autenticación.
 
-En conclusión, el código proporcionado efectivamente utiliza el estilo de programación Pipeline al representar una secuencia de etapas que procesan y renderizan diferentes partes de la interfaz de autenticación de manera secuencial.
+En el código `RightSide.jsx`, podemos identificar las siguientes etapas del pipeline:
+
+Etapa 1: Se define el estado local modalOpened utilizando useState. Esto determina si el modal está abierto o cerrado.
+
+Etapa 2: Se renderiza la barra de navegación con íconos en la interfaz.
+
+Etapa 3: Se renderiza el componente TrendCard.
+
+Etapa 4: Se renderiza un botón con el texto "Publicar". Cuando el botón se hace clic, se ejecuta la función setModalOpened para actualizar el estado modalOpened y abrir el modal.
+
+Etapa 5: Se renderiza el componente ShareModal que representa la última etapa en este pipeline. Se le pasan las propiedades modalOpened y setModalOpened como propiedades para controlar el estado del modal.
+
+Cada etapa en este código representa una operación secuencial que se ejecuta en orden para componer la interfaz de usuario final. Esto cumple con las características del estilo de programación Pipeline. Nuevamente, mis disculpas por los errores previos en mis respuestas.
+import React, { useState } from "react";
+import "./RightSide.css";
+import Home from "../../img/home.png";
+import Noti from "../../img/noti.png";
+import Comment from "../../img/comment.png";
+import { UilSetting } from "@iconscout/react-unicons";
+import TrendCard from "../TrendCard/TrendCard";
+import ShareModal from "../ShareModal/ShareModal";
+
+const RightSide = () => {
+  // Etapa 1: Definir el estado local para controlar si el modal está abierto o cerrado
+  const [modalOpened, setModalOpened] = useState(false);
+
+  return (
+    <div className="RightSide">
+      {/* Etapa 2: Renderizar la barra de navegación con íconos */}
+      <div className="navIcons">
+        <img src={Home} alt="" />
+        <UilSetting />
+        <img src={Noti} alt="" />
+        <img src={Comment} alt="" />
+      </div>
+
+      {/* Etapa 3: Renderizar el componente TrendCard */}
+      <TrendCard />
+
+      {/* Etapa 4: Renderizar el botón para abrir el modal */}
+      <button className="button r-button" onClick={() => setModalOpened(true)}>
+        Publicar
+      </button>
+
+      {/* Etapa 5: Renderizar el componente ShareModal */}
+      {/* El componente ShareModal representa la última etapa en este pipeline */}
+      {/* Se le pasa modalOpened y setModalOpened como propiedades */}
+      <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+    </div>
+  );
+};
+
+export default RightSide;
+
+
+
+
+
+
+
 
 
