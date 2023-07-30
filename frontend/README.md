@@ -47,6 +47,48 @@ const Profile = () => {
 export default Profile
 ```
 
+* __Ejemplo 2__
+El siguiente código (`ProfileLeft.jsx`) utiliza el estilo de programación Cook Book. El código define un componente llamado `ProfileLeft`, que utiliza otros componentes (`LogoSearch`, `InfoCard` y `FollowersCard`) para construir la interfaz de usuario.
+
+Veamos el código por partes:
+
+1. Importaciones de componentes:
+
+```jsx
+import React from 'react'
+import FollowersCard from '../FollowersCard/FollowersCard'
+import InfoCard from '../InfoCard/InfoCard'
+import LogoSearch from '../LogoSearch/LogoSearch'
+```
+
+En esta sección se importan los componentes que se utilizarán en el componente `ProfileLeft`. Cada componente se importa desde un archivo diferente en la carpeta `components/`.
+
+2. Definición del componente `ProfileLeft`:
+
+```jsx
+const ProfileLeft = () => {
+  return (
+   <div className="ProfileSide">
+       <LogoSearch/>
+       <InfoCard/>
+       <FollowersCard/>
+   </div>
+  )
+}
+```
+
+En esta sección se define el componente `ProfileLeft`. Este componente es una función que devuelve un fragmento de JSX. El fragmento consiste en un contenedor con la clase CSS `ProfileSide` y tres componentes: `LogoSearch`, `InfoCard` y `FollowersCard`.
+
+3. Exportación del componente `ProfileLeft`:
+
+```jsx
+export default ProfileLeft
+```
+
+En esta sección se exporta el componente `ProfileLeft` para que pueda ser utilizado en otras partes de la aplicación.
+
+En resumen, este código utiliza el estilo de programación Cook Book al utilizar componentes reutilizables (`LogoSearch`, `InfoCard` y `FollowersCard`) para construir el componente `ProfileLeft`. Al utilizar componentes ya existentes en lugar de escribir todo el código personalizado desde cero, se maximiza la eficiencia del desarrollo y se hace que el código sea más fácil de entender y mantener.
+
 ## 2. Estilo de Programación Code Golf
 
 El estilo de programación conocido como "Code Golf" se centra en escribir código de la manera más concisa y compacta posible para resolver un problema o implementar una función específica. En esencia, se trata de reducir la longitud del código al mínimo absoluto sin sacrificar la funcionalidad y sin violar las reglas del desafío de Code Golf en cuestión.
