@@ -39,6 +39,8 @@ Ideal para operaciones en serie: Este estilo es especialmente útil cuando se re
 
 __EJEMPLOS__
 
+* __Ejemplo 1__
+
 En el código `Auth.jsx`, las funciones `Auth`, `LogIn`, y `SignUp` actúan como etapas del pipeline, donde cada una procesa y renderiza diferentes partes de la interfaz de autenticación. La salida de `Auth` es un contenedor que contiene la interfaz de inicio de sesión (`LogIn`), y en una aplicación más grande, podría contener otras etapas como la interfaz de registro (`SignUp`) o cualquier otra página relacionada.
 
 Aquí está la explicación del código y cómo se ajusta al estilo de programación Pipeline:
