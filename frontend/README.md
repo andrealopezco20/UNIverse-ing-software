@@ -12,7 +12,40 @@ Reusabilidad: Dado que cada función o tarea se divide en pasos discretos, estos
 
 Fácil de mantener: Debido a su naturaleza estructurada, el estilo de programación "Cook Book" es más fácil de mantener a medida que el código crece o cuando se realizan cambios en el mismo.
 
+__EJEMPLOS IMPLEMENTADOS EN EL PROYECTO__
 
+* __Ejemplo 1__
+  
+El código proporcionado (`Profile.jsx`) esta utilizando el estilo de programación Cook Book. En lugar de escribir todo el código personalizado para la página de perfil, el código utiliza componentes reutilizables de otros archivos para construir la página.
+
+En este código, se utilizan cuatro componentes diferentes (`ProfileLeft`, `ProfileCard`, `PostSide` y `RightSide`), que se importan desde otros archivos en lugar de ser escritos desde cero. Estos componentes probablemente han sido diseñados para ser reutilizables en otras páginas o proyectos, y se han utilizado aquí para construir la página de perfil.
+
+Además, el código sigue las convenciones de React y utiliza una estructura clara y fácil de entender. Los nombres de los componentes y las clases CSS también son descriptivos y fáciles de entender, lo que facilita la lectura y el mantenimiento del código.
+
+```jsx
+import React from 'react'
+import PostSide from '../../components/PostSide/PostSide'
+import ProfileCard from '../../components/ProfileCard.jsx/ProfileCard'
+import ProfileLeft from '../../components/ProfileLeft/ProfileLeft'
+import RightSide from '../../components/RightSide/RightSide'
+import './Profile.css'
+const Profile = () => {
+  return (
+    <div className="Profile">
+        <ProfileLeft/>
+
+        <div className="Profile-center">
+            <ProfileCard/>
+            <PostSide/>
+        </div>
+
+        <RightSide/>
+    </div>
+  )
+}
+
+export default Profile
+```
 
 ## 2. Estilo de Programación Code Golf
 
