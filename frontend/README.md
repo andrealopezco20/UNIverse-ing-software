@@ -48,6 +48,7 @@ export default Profile
 ```
 
 * __Ejemplo 2__
+  
 El siguiente código (`ProfileLeft.jsx`) utiliza el estilo de programación Cook Book. El código define un componente llamado `ProfileLeft`, que utiliza otros componentes (`LogoSearch`, `InfoCard` y `FollowersCard`) para construir la interfaz de usuario.
 
 Veamos el código por partes:
