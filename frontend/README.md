@@ -1,5 +1,5 @@
 # Laboratorio 9: Estilos de Programación
-## Estilo de Programación Cook Book
+## 1. Estilo de Programación Cook Book
 
 El estilo de programación "Cook Book" se caracteriza por seguir un enfoque estructurado y paso a paso al escribir código. Es similar a seguir una receta en un libro de cocina, donde cada paso se detalla claramente y en orden. Este estilo es especialmente útil cuando se trabaja en proyectos con tareas bien definidas y repetitivas.
 
@@ -11,30 +11,36 @@ Comentarios detallados: El código se acompaña de comentarios que explican cada
 Reusabilidad: Dado que cada función o tarea se divide en pasos discretos, estos pasos pueden reutilizarse en diferentes partes del código cuando sea necesario.
 
 Fácil de mantener: Debido a su naturaleza estructurada, el estilo de programación "Cook Book" es más fácil de mantener a medida que el código crece o cuando se realizan cambios en el mismo.
+
+## 2. Estilo de Programación Thing
+
+El estilo de programación "Thing" se centra en la creación de objetos o entidades independientes que encapsulan sus propios datos y comportamientos. Cada objeto actúa como una "cosa" con su propia lógica interna, y las interacciones entre las "cosas" son manejadas a través de mensajes o eventos.
+
+Características principales
+Abstracción: Cada "cosa" es una abstracción de un objeto del mundo real o una entidad en el dominio del problema.
+
+Encapsulación: Cada "cosa" encapsula su estado y comportamiento, lo que evita el acceso directo y promueve una mayor cohesión.
+
+Comunicación basada en mensajes: Las interacciones entre las "cosas" se realizan enviando mensajes o eventos, lo que promueve un acoplamiento más débil y una mayor modularidad.
+
+Reusabilidad: Los objetos se pueden reutilizar en diferentes contextos y son fácilmente intercambiables.
+
+## 3. Estilo de Programación Pipeline
+El estilo de programación "Pipeline" se basa en la idea de construir una serie de pasos o etapas conectados en secuencia, donde el resultado de cada paso se utiliza como entrada para el siguiente. Es similar a cómo fluye un líquido a través de un tubo, de ahí el nombre "Pipeline".
+
+Características principales
+Secuencialidad: Cada paso o etapa se ejecuta en secuencia, y el resultado de cada paso se pasa al siguiente.
+
+Modularidad: Cada paso se encapsula en su propia función o módulo, lo que facilita la reutilización y el mantenimiento del código.
+
+Legibilidad: Al estar organizado en una secuencia lógica, el código escrito en el estilo "Pipeline" suele ser más legible y comprensible.
+
+Ideal para operaciones en serie: Este estilo es especialmente útil cuando se requiere realizar una serie de operaciones o transformaciones en un conjunto de datos.
+
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
