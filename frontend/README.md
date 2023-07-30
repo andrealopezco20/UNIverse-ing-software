@@ -1,8 +1,16 @@
 # Laboratorio 9: Estilos de Programación
 ## Estilo de Programación Cook Book
 
-In the project directory, you can run:
+El estilo de programación "Cook Book" se caracteriza por seguir un enfoque estructurado y paso a paso al escribir código. Es similar a seguir una receta en un libro de cocina, donde cada paso se detalla claramente y en orden. Este estilo es especialmente útil cuando se trabaja en proyectos con tareas bien definidas y repetitivas.
 
+Características principales
+Pasos detallados: Cada tarea o función se descompone en pasos individuales que se explican de manera clara y concisa. Esto facilita el seguimiento y la comprensión de cada paso del proceso.
+
+Comentarios detallados: El código se acompaña de comentarios que explican cada paso o acción realizada. Estos comentarios actúan como instrucciones adicionales para guiar a los desarrolladores a través del código.
+
+Reusabilidad: Dado que cada función o tarea se divide en pasos discretos, estos pasos pueden reutilizarse en diferentes partes del código cuando sea necesario.
+
+Fácil de mantener: Debido a su naturaleza estructurada, el estilo de programación "Cook Book" es más fácil de mantener a medida que el código crece o cuando se realizan cambios en el mismo.
 ### `yarn start`
 
 Runs the app in the development mode.\
