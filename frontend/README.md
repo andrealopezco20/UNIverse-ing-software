@@ -374,7 +374,7 @@ const RightSide = () => {
 
 export default RightSide;
 ```
-
+# Laboratorio 10: Clean Code
 
 
 
