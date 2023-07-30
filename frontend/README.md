@@ -114,6 +114,7 @@ Etapa 4: Se renderiza un botón con el texto "Publicar". Cuando el botón se hac
 Etapa 5: Se renderiza el componente ShareModal que representa la última etapa en este pipeline. Se le pasan las propiedades modalOpened y setModalOpened como propiedades para controlar el estado del modal.
 
 Cada etapa en este código representa una operación secuencial que se ejecuta en orden para componer la interfaz de usuario final. Esto cumple con las características del estilo de programación Pipeline. Nuevamente, mis disculpas por los errores previos en mis respuestas.
+```jsx
 import React, { useState } from "react";
 import "./RightSide.css";
 import Home from "../../img/home.png";
@@ -154,6 +155,7 @@ const RightSide = () => {
 };
 
 export default RightSide;
+```
 
 
 
