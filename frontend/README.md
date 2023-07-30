@@ -12,18 +12,79 @@ Reusabilidad: Dado que cada función o tarea se divide en pasos discretos, estos
 
 Fácil de mantener: Debido a su naturaleza estructurada, el estilo de programación "Cook Book" es más fácil de mantener a medida que el código crece o cuando se realizan cambios en el mismo.
 
-## 2. Estilo de Programación Thing
 
-El estilo de programación "Thing" se centra en la creación de objetos o entidades independientes que encapsulan sus propios datos y comportamientos. Cada objeto actúa como una "cosa" con su propia lógica interna, y las interacciones entre las "cosas" son manejadas a través de mensajes o eventos.
 
-Características principales
-Abstracción: Cada "cosa" es una abstracción de un objeto del mundo real o una entidad en el dominio del problema.
+## 2. Estilo de Programación Code Golf
 
-Encapsulación: Cada "cosa" encapsula su estado y comportamiento, lo que evita el acceso directo y promueve una mayor cohesión.
+El estilo de programación conocido como "Code Golf" se centra en escribir código de la manera más concisa y compacta posible para resolver un problema o implementar una función específica. En esencia, se trata de reducir la longitud del código al mínimo absoluto sin sacrificar la funcionalidad y sin violar las reglas del desafío de Code Golf en cuestión.
 
-Comunicación basada en mensajes: Las interacciones entre las "cosas" se realizan enviando mensajes o eventos, lo que promueve un acoplamiento más débil y una mayor modularidad.
+El objetivo principal de Code Golf es expresar la solución al problema en la menor cantidad de caracteres o líneas de código posible. Esto puede incluir el uso creativo de operadores, abreviaciones, funciones predefinidas y todo tipo de técnicas que permitan reducir la longitud del código. A menudo, los participantes recurren a trucos matemáticos, operaciones bitwise y optimizaciones específicas del lenguaje para alcanzar este objetivo.
 
-Reusabilidad: Los objetos se pueden reutilizar en diferentes contextos y son fácilmente intercambiables.
+Algunas características comunes del estilo de programación de Code Golf incluyen:
+
+1. Abreviaciones y nombres de variables mínimos: Los nombres de variables suelen ser muy cortos y crípticos para reducir la longitud del código.
+
+2. Uso extensivo de operadores abreviados: En lugar de utilizar operaciones completas, se prefieren operadores abreviados para reducir la cantidad de caracteres utilizados.
+
+3. Uso creativo de estructuras de control: A menudo, se utilizan estructuras de control poco convencionales para lograr la funcionalidad requerida con menos líneas de código.
+
+4. Aprovechar funciones y bibliotecas predefinidas: Los participantes de Code Golf utilizan las funciones incorporadas del lenguaje o bibliotecas disponibles para evitar tener que implementar funciones personalizadas más largas.
+
+5. Técnicas matemáticas avanzadas: Se utilizan trucos matemáticos, algoritmos compactos y operaciones bitwise para manipular datos de manera eficiente.
+
+6. Combinación de instrucciones: Se combinan múltiples operaciones en una sola línea para reducir la cantidad total de líneas de código.
+
+Es importante tener en cuenta que el estilo de programación de Code Golf puede resultar en código difícil de leer y mantener, ya que la legibilidad no es una prioridad en este contexto. El objetivo principal es obtener la solución más corta y eficiente para cumplir con las reglas del desafío. Este estilo de programación es común en competiciones y desafíos en línea relacionados con la programación, donde la longitud del código es un factor determinante para calificar la solución como ganadora.
+
+__EJEMPLOS IMPLEMENTADOS EN EL PROYECTO__
+
+* __Ejemplo 1__
+
+El código proporcionado (`FollowersCard.jsx`) es un componente de React escrito en un estilo compacto y conciso, que se asemeja al estilo de programación de Code Golf en cierta medida. A continuación, analizaré algunas características del código que muestran cómo se ha utilizado este estilo:
+
+1. Nombres de variables cortos: Se utilizan nombres cortos y crípticos para las variables. Por ejemplo, `Followers` se refiere a un arreglo de datos, y `follower` es el elemento individual dentro del arreglo.
+
+2. Uso eficiente de las funciones incorporadas de JavaScript y de React: El código utiliza el método `map()` de JavaScript para iterar sobre el arreglo de `Followers` y renderizar cada elemento. También aprovecha los componentes de React para construir la estructura del componente.
+
+3. Uso de funciones flecha (arrow functions): Las funciones flecha se utilizan para mantener el código más compacto.
+
+4. Operador ternario implícito: En la línea `<img src={follower.img} alt="" className='followerImage' />`, el atributo `alt` se deja vacío (`alt=""`) para evitar que se muestre un texto alternativo para la imagen, lo cual podría ser un truco intencional para ahorrar caracteres.
+
+5. Uso eficiente de JSX: El JSX se utiliza de manera eficiente para crear la estructura del componente con una sintaxis compacta.
+
+En general, el código muestra una implementación concisa y funcional del componente `FollowersCard`, y parece haberse escrito de manera que prioriza la brevedad y la eficiencia.
+```jsx
+import React from 'react'
+import './FollowersCard.css'
+
+import { Followers } from '../../Data/FollowersData'
+const FollowersCard = () => {
+  return (
+    <div className="FollowersCard">
+        <h3>Who is following you</h3>
+
+        {Followers. map((follower, id)=>{
+            return(
+                <div className="follower">
+                    <div>
+                        <img src={follower.img} alt="" className='followerImage' />
+                        <div className="name">
+                            <span>{follower.name}</span>
+                            <span>@{follower.username}</span>
+                        </div>
+                    </div>
+                    <button className='button fc-button'>
+                        Follow
+                    </button>
+                </div>
+            )
+        })}
+    </div>
+  )
+}
+
+export default FollowersCard
+```
 
 ## 3. Estilo de Programación Pipeline
 El estilo de programación "Pipeline" se basa en la idea de construir una serie de pasos o etapas conectados en secuencia, donde el resultado de cada paso se utiliza como entrada para el siguiente. Es similar a cómo fluye un líquido a través de un tubo, de ahí el nombre "Pipeline".
