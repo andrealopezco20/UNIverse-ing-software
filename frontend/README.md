@@ -37,11 +37,70 @@ Legibilidad: Al estar organizado en una secuencia lógica, el código escrito en
 
 Ideal para operaciones en serie: Este estilo es especialmente útil cuando se requiere realizar una serie de operaciones o transformaciones en un conjunto de datos.
 
-### `yarn start`
+En el código, las funciones `Auth`, `LogIn`, y `SignUp` actúan como etapas del pipeline, donde cada una procesa y renderiza diferentes partes de la interfaz de autenticación. La salida de `Auth` es un contenedor que contiene la interfaz de inicio de sesión (`LogIn`), y en una aplicación más grande, podría contener otras etapas como la interfaz de registro (`SignUp`) o cualquier otra página relacionada.
 
+Aquí está la explicación del código y cómo se ajusta al estilo de programación Pipeline:
 
+1. **Etapa 1: `Auth`**
 
+```jsx
+const Auth = () => {
+  return (
+    <div className="Auth">
+      <div className="a-left">
+        {/* Contenido de la izquierda, como un logo o título */}
+        <div className="Webname">
+          <h6>Conectando persona, creando relaciones</h6>
+        </div>
+      </div>
+      {/* Etapa 2: Renderizar la interfaz de inicio de sesión */}
+      <LogIn />
+    </div>
+  );
+};
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Etapa 2: `LogIn`**
+
+```jsx
+const LogIn = () => {
+  return (
+    <div className="a-right">
+      <form className="infoForm authForm">
+        <h3>Iniciar Sesion</h3>
+
+        <div>
+          {/* Input para el nombre de usuario */}
+          <input
+            type="text"
+            placeholder="Usuario"
+            className="infoInput"
+            name="username"
+          />
+        </div>
+
+        <div>
+          {/* Input para la contraseña */}
+          <input
+            type="password"
+            className="infoInput"
+            placeholder="Contrseña"
+            name="password"
+          />
+        </div>
+
+        <div>
+          <span style={{ fontSize: "12px" }}>Don't have an account Sign up</span>
+          <button className="button infoButton">Login</button>
+        </div>
+      </form>
+    </div>
+  );
+};
+```
+
+En esta implementación, `Auth` representa la primera etapa del pipeline, que renderiza el contenedor principal y luego pasa el control a la siguiente etapa, `LogIn`, que renderiza la interfaz de inicio de sesión. En una aplicación más compleja, podríamos tener más etapas, como la interfaz de registro `SignUp` o cualquier otra página que forme parte de la autenticación.
+
+En conclusión, el código proporcionado efectivamente utiliza el estilo de programación Pipeline al representar una secuencia de etapas que procesan y renderizan diferentes partes de la interfaz de autenticación de manera secuencial.
 
 
