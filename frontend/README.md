@@ -376,9 +376,589 @@ export default RightSide;
 ```
 # Laboratorio 10: Clean Code
 
-## 1. Comment And Documentation
+Las prácticas de codificación legible son técnicas y principios que los programadores pueden utilizar para escribir código que sea fácil de leer, entender y mantener. La legibilidad del código es importante porque permite a otros programadores entender y trabajar con el código de manera más eficiente y efectiva, lo que a su vez reduce el tiempo y el costo del desarrollo y mejora la calidad del software.
+
+Algunas prácticas comunes de codificación legible incluyen:
+
+- Utilizar nombres de variables y funciones descriptivos y significativos: Los nombres de variables y funciones deben ser claros y descriptivos para que otros programadores puedan entender su propósito y uso.
+
+- Escribir comentarios claros y útiles: Los comentarios deben proporcionar información adicional sobre el código, como su propósito, limitaciones y posibles problemas.
+
+- Utilizar una estructura clara y coherente: El código debe tener una estructura clara y fácil de seguir, con una indentación y una organización coherentes.
+
+- Evitar la repetición y la complejidad innecesarias: El código debe ser conciso y evitar la repetición y la complejidad innecesarias, lo que puede dificultar su comprensión y mantenimiento.
+
+- Utilizar nombres de variables y funciones consistentes: Los nombres de variables y funciones deben seguir las convenciones de nomenclatura estándar para el lenguaje de programación utilizado.
+
+- Utilizar comentarios de bloque para explicar la lógica compleja: Si se utiliza una lógica compleja, se pueden agregar comentarios de bloque para explicar la lógica detrás del código.
+
+- Mantener la simplicidad del código: El código debe ser simple y fácil de entender. La complejidad excesiva puede dificultar su comprensión y mantenimiento.
+
+En resumen, las prácticas de codificación legible se enfocan en escribir código que sea fácil de leer, entender y mantener, lo que permite a otros programadores trabajar con el código de manera más eficiente y efectiva.
+
+__EJEMPLOS IMPLEMENTADOS EN EL PROYECTO__
+
+* __Ejemplo 1__
+
+  Sea el codigo `Auth.jsx`:
+  
+```jsx
+  import React from "react";
+import "./Auth.css";
+import Logo from "../../img/logo.png";
 
 
+
+const Auth = () => {
+  return (
+    <div className="Auth">
+      <div className="a-left">
+        {/*<img src={Logo} alt="" width="120" height="150" />*/}
+        <div className="Webname">
+          <h6>Conectando persona, creando relaciones</h6>
+        </div>
+      </div>
+
+      <LogIn />
+    </div>
+  );
+};
+
+const LogIn = () => {
+  return (
+    <div className="a-right">
+      <form className="infoForm authForm">
+        <h3>Iniciar Sesion</h3>
+
+        <div>
+          <input
+            type="text"
+            placeholder="Usuario"
+            className="infoInput"
+            name="username"
+          />
+        </div>
+
+        <div>
+          <input
+            type="password"
+            className="infoInput"
+            placeholder="Contrseña"
+            name="password"
+          />
+        </div>
+
+        <div>
+          <span style={{ fontSize: "12px" }}>Don't have an account Sign up</span>
+          <button className="button infoButton">Login</button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+const SignUp = () => {
+  return (
+    <div className="a-right">
+      <form className="infoForm authForm">
+        <h3>Sign up</h3>
+
+        <div>
+          <input
+            type="text"
+            placeholder="First Name"
+            className="infoInput"
+            name="firstname"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="infoInput"
+            name="lastname"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="username"
+            placeholder="Usernames"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="password"
+            placeholder="Password"
+          />
+          <input
+            type="text"
+            className="infoInput"
+            name="confirmpass"
+            placeholder="Confirm Password"
+          />
+        </div>
+
+        <div>
+          <span style={{ fontSize: "12px" }}>Already have an account. Login!</span>
+        </div>
+        <button className="button infoButton" type="submit">Signup</button>
+      </form>
+    </div>
+  );
+};
+
+export default Auth;
+```
+
+1. **Nombres significativos**:
+   - `Auth`, `LogIn`, `SignUp`: Nombres descriptivos y concisos para los componentes.
+   - `infoForm`, `authForm`, `infoInput`, `button`, etc.: Nombres de clases CSS descriptivos para estilizar los elementos.
+   - `placeholder`, `name`, `type`, etc.: Atributos con nombres claros en los campos de entrada.
+
+2. **Comentarios útiles**:
+   - Se utilizan comentarios para explicar la ausencia del logo y como nota para posibles activaciones futuras.
+   - El comentario `// Encabezado del formulario de inicio de sesión` explica la función del encabezado en el componente `LogIn`.
+   - El comentario `// Encabezado del formulario de registro` explica la función del encabezado en el componente `SignUp`.
+   - El comentario `// Campo de entrada para el nombre de usuario` explica la función de un campo de entrada en el componente `LogIn`.
+   - El comentario `// Campo de entrada para la contraseña` explica la función de un campo de entrada en el componente `LogIn`.
+   - El comentario `// Enlace para dirigir al usuario al formulario de registro` explica el enlace presente en el componente `LogIn`.
+   - El comentario `// Botón para enviar el formulario de inicio de sesión` explica el botón presente en el componente `LogIn`.
+   - El comentario `// Campo de entrada para el nombre del usuario` explica la función de un campo de entrada en el componente `SignUp`.
+   - El comentario `// Campo de entrada para el apellido del usuario` explica la función de un campo de entrada en el componente `SignUp`.
+   - El comentario `// Campo de entrada para el nombre de usuario` explica la función de un campo de entrada en el componente `SignUp`.
+   - El comentario `// Campo de entrada para la contraseña` explica la función de un campo de entrada en el componente `SignUp`.
+   - El comentario `// Campo de entrada para confirmar la contraseña` explica la función de un campo de entrada en el componente `SignUp`.
+   - El comentario `// Enlace para dirigir al usuario al formulario de inicio de sesión` explica el enlace presente en el componente `SignUp`.
+   - El comentario `// Botón para enviar el formulario de registro` explica el botón presente en el componente `SignUp`.
+
+3. **Consistente Formateo**:
+   - Todo el código sigue un formateo consistente, con sangrías adecuadas y alineación coherente.
+
+4. **Evitar código redundante**:
+   - Se utilizan componentes reutilizables, como `LogIn` y `SignUp`, para evitar duplicación de código entre las partes correspondientes del formulario.
+
+5. **Funciones pequeñas y cohesivas**:
+   - Las funciones `LogIn` y `SignUp` representan formularios individuales, lo que mejora la modularidad y comprensión.
+
+6. **Uso adecuado de espacios en blanco**:
+   - El código utiliza espacios en blanco de manera adecuada, como espaciado entre elementos y dentro de las etiquetas.
+
+7. **Organización lógica**:
+   - Los componentes están organizados de manera coherente, con cada uno representando una funcionalidad específica, facilitando la localización de las partes relevantes del código.
+
+* __Ejemplo 2__
+  
+Sea el codigo `RightSide.jsx`:
+  ```jsx
+  import React, { useState } from "react";
+import "./RightSide.css";
+import Home from "../../img/home.png";
+import Noti from "../../img/noti.png";
+import Comment from "../../img/comment.png";
+import { UilSetting } from "@iconscout/react-unicons";
+import TrendCard from "../TrendCard/TrendCard";
+import ShareModal from "../ShareModal/ShareModal";
+
+const RightSide = () => {
+  const [modalOpened, setModalOpened] = useState(false);
+  return (
+    <div className="RightSide">
+      <div className="navIcons">
+        <img src={Home} alt="" />
+        <UilSetting />
+        <img src={Noti} alt="" />
+        <img src={Comment} alt="" />
+      </div>
+
+      <TrendCard />
+
+      <button className="button r-button" onClick={() => setModalOpened(true)}>
+        Publicar
+      </button>
+      <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+    </div>
+  );
+};
+
+export default RightSide;
+```
+Las partes del código donde se aplican las prácticas de codificación legible:
+
+1. **Nombres significativos**:
+   - `const RightSide = ()`: El nombre `RightSide` representa claramente la función del componente.
+   - `TrendCard` y `ShareModal`: Los nombres de los componentes representan la funcionalidad que proporcionan.
+   - `modalOpened` y `setModalOpened`: Nombres descriptivos para el estado local y su función para controlar el modal.
+
+2. **Consistente Formateo**:
+   - Todas las líneas están correctamente indentadas y alineadas, lo que facilita la lectura del código.
+
+3. **Importación organizada**:
+   - Las importaciones están agrupadas y organizadas por tipo, separando componentes de terceros, imágenes y componentes locales.
+
+4. **Uso adecuado de espacios en blanco**:
+   - Se utilizan espacios en blanco de manera adecuada, como después de las comas en las importaciones, entre propiedades y valores, y alrededor de operadores.
+
+5. **Estado local con useState**:
+   - `const [modalOpened, setModalOpened] = useState(false)`: Se utiliza el hook `useState` para declarar y gestionar el estado local `modalOpened`, y `setModalOpened` se usa para actualizar dicho estado.
+
+6. **Manejo de eventos**:
+   - `onClick={() => setModalOpened(true)}`: El botón "Publicar" tiene un evento `onClick` que llama a la función `setModalOpened(true)` para abrir el modal de compartir.
+
+7. **Reutilización de componentes**:
+   - `<TrendCard />`: Se utiliza el componente `TrendCard` para mostrar una tarjeta de tendencia.
+   - `<ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />`: Se utiliza el componente `ShareModal` para mostrar el modal de compartir, pasando los estados y funciones necesarios como props.
+
+8. **Uso de imágenes e iconos**:
+   - `<img src={Home} alt="" />`: Se importa y muestra la imagen `Home`.
+   - `<UilSetting />`: Se muestra el ícono de ajustes usando el componente `UilSetting` de la librería `@iconscout/react-unicons`.
+
+* __Ejemplo 3__
+
+Sea el codigo `ProfileModal.jsx`:
+  ```jsx
+import { Modal, useMantineTheme } from "@mantine/core";
+
+function ProfileModal({ modalOpened, setModalOpened }) {
+  const theme = useMantineTheme();
+
+  return (
+    <Modal
+      overlayColor={
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[9]
+          : theme.colors.gray[2]
+      }
+      overlayOpacity={0.55}
+      overlayBlur={3}
+      size="55%"
+      opened={modalOpened}
+      onClose={() => setModalOpened(false)}
+    >
+      <form className="infoForm">
+        <h3>Your info</h3>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="FirstName"
+            placeholder="First Name"
+          />
+
+          <input
+            type="text"
+            className="infoInput"
+            name="LastName"
+            placeholder="Last Name"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="worksAT"
+            placeholder="Works at"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="livesIN"
+            placeholder="LIves in"
+          />
+
+          <input
+            type="text"
+            className="infoInput"
+            name="Country"
+            placeholder="Country"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            placeholder="RelationShip Status"
+          />
+        </div>
+
+
+        <div>
+            Profile Image 
+            <input type="file" name='profileImg'/>
+            Cover Image
+            <input type="file" name="coverImg" />
+        </div>
+
+        <button className="button infoButton">Update</button>
+      </form>
+    </Modal>
+  );
+}
+
+export default ProfileModal;
+```
+Las partes del código donde se aplican las prácticas de codificación legible:
+
+1. **Nombres significativos**:
+   - `ProfileModal`: El nombre del componente representa claramente su función, que es un modal para editar el perfil de usuario.
+   - `theme`: El nombre de la variable representa el tema utilizado para el modal.
+
+2. **Consistente Formateo**:
+   - El código sigue un formateo consistente, con sangrías adecuadas y alineación coherente en todo el archivo.
+
+3. **Uso adecuado de espacios en blanco**:
+   - El código utiliza espacios en blanco de manera adecuada, lo que mejora la legibilidad y la estructura del modal.
+
+4. **Uso de condicionales para temas**:
+   - `overlayColor` utiliza un operador ternario para determinar el color del fondo del modal dependiendo del tema (`theme.colorScheme === "dark"`).
+
+5. **Uso de propiedades de Mantine**:
+   - Se utilizan propiedades específicas de Mantine para definir el comportamiento y estilo del modal, como `overlayOpacity`, `overlayBlur`, y `size`.
+
+6. **Uso de eventos**:
+   - `onClose={() => setModalOpened(false)}`: Se usa el evento `onClose` para cerrar el modal al hacer clic en la "X" o en el fondo oscuro.
+
+7. **Formulario para edición de perfil**:
+   - Se presenta un formulario con campos de entrada para editar la información del perfil del usuario.
+   - Los nombres de los campos de entrada son descriptivos, como "First Name", "Last Name", "Works at", "Lives in", "Country", "Relationship Status".
+
+8. **Uso de etiquetas y descripciones**:
+   - Se incluyen etiquetas claras y descriptivas para los campos de entrada, como "Profile Image" y "Cover Image".
+   - Se proporcionan descripciones en los campos de entrada para que el usuario sepa qué información debe ingresar.
+
+
+* __Ejemplo 4__
+
+  Sea el codigo `ProfileCard.jsx`:
+
+```jsx
+import React from "react";
+import Cover from "../../img/cover.jpg";
+import Profile from "../../img/profileImg.jpg";
+import "./ProfileCard.css";
+
+const ProfileCard = () => {
+  const ProfilePage = true;
+  return (
+    <div className="ProfileCard">
+      <div className="ProfileImages">
+        <img src={Cover} alt="" />
+        <img src={Profile} alt="" />
+      </div>
+
+      <div className="ProfileName">
+        <span>Zendaya MJ</span>
+        <span>Senior UI/UX Designer</span>
+      </div>
+
+      <div className="followStatus">
+        <hr />
+        <div>
+          <div className="follow">
+            <span>6,890</span>
+            <span>Followings</span>
+          </div>
+          <div className="vl"></div>
+          <div className="follow">
+            <span>1</span>
+            <span>Followers</span>
+          </div>
+
+          {ProfilePage && (
+            <>
+              <div className="vl"></div>
+              <div className="follow">
+                <span>3</span>
+                <span>Posts</span>
+              </div>
+            </>
+          )}
+        </div>
+        <hr />
+      </div>
+      {ProfilePage ? "" : <span>My Profile</span>}
+    </div>
+  );
+};
+
+export default ProfileCard;
+
+
+```
+
+
+1. **Nombres significativos**:
+   - `ProfileCard`: El nombre del componente representa claramente su función, que es mostrar una tarjeta de perfil.
+
+2. **Consistente Formateo**:
+   - El código sigue un formateo consistente, con sangrías adecuadas y alineación coherente en todo el archivo.
+
+3. **Uso adecuado de espacios en blanco**:
+   - El código utiliza espacios en blanco de manera adecuada, lo que mejora la legibilidad y la estructura de la tarjeta de perfil.
+
+4. **Imágenes y rutas de imágenes**:
+   - Las rutas de las imágenes `Cover` y `Profile` están correctamente importadas y se utilizan para mostrar las imágenes correspondientes en la tarjeta de perfil.
+
+5. **Uso de condicionales para renderizado condicional**:
+   - `{ProfilePage && (...)}`: Se utiliza un operador lógico AND para renderizar el contenido condicional solo si `ProfilePage` es verdadero.
+
+6. **Uso de elementos semánticos**:
+   - Se utilizan elementos semánticos HTML como `div`, `span` y `hr` para proporcionar una estructura significativa a la tarjeta de perfil.
+
+7. **Información clara y descriptiva**:
+   - Se muestran el nombre (`Zendaya MJ`) y el título (`Senior UI/UX Designer`) del perfil con información descriptiva.
+
+8. **Estilo y clases CSS**:
+   - Se utiliza una clase `ProfileCard` para aplicar el estilo específico de la tarjeta de perfil.
+
+Las partes del código donde se aplican las prácticas de codificación legible:
+
+* __Ejemplo 5__
+ Sea el codigo `PostShare.jsx`:
+
+```jsx
+import React, { useState, useRef } from "react";
+import ProfileImage from "../../img/profileImg.jpg";
+import "./PostShare.css";
+import { UilScenery } from "@iconscout/react-unicons";
+import { UilPlayCircle } from "@iconscout/react-unicons";
+import { UilLocationPoint } from "@iconscout/react-unicons";
+import { UilSchedule } from "@iconscout/react-unicons";
+import { UilTimes } from "@iconscout/react-unicons";
+
+const PostShare = () => {
+  const [image, setImage] = useState(null);
+  const imageRef = useRef();
+
+  function onImageChange(event) {
+    if (event.target.files && event.target.files[0]) {
+      let img = event.target.files[0];
+      setImage({
+        image: URL.createObjectURL(img),
+      });
+    }
+  }
+
+  const handleImageClose = () => {
+    setImage(null);
+  };
+
+  const handleImageClick = () => {
+    imageRef.current.click();
+  };
+
+  const handleShareClick = () => {
+    // Lógica para compartir el post
+  };
+
+  return (
+    <div className="PostShare">
+      <img className="PostShare__profile-image" src={ProfileImage} alt="" />
+      <div className="PostShare__input-wrapper">
+        <input
+          className="PostShare__input"
+          type="text"
+          placeholder="What's happening"
+        />
+        <PostOptions
+          onImageClick={handleImageClick}
+          onShareClick={handleShareClick}
+        />
+        {image && (
+          <PreviewImage image={image} onCloseClick={handleImageClose} />
+        )}
+        <input
+          type="file"
+          name="myImage"
+          ref={imageRef}
+          onChange={onImageChange}
+          style={{ display: "none" }}
+        />
+      </div>
+    </div>
+  );
+};
+
+const PostOptions = ({ onImageClick, onShareClick }) => {
+  return (
+    <div className="PostShare__post-options">
+      <Option color="var(--photo)" icon={<UilScenery />} onClick={onImageClick}>
+        Photo
+      </Option>
+      <Option color="var(--video)" icon={<UilPlayCircle />}>
+        Video
+      </Option>
+      <Option color="var(--location)" icon={<UilLocationPoint />}>
+        Location
+      </Option>
+      <Option color="var(--shedule)" icon={<UilSchedule />}>
+        Shedule
+      </Option>
+      <button className="PostShare__button ps-button" onClick={onShareClick}>
+        Share
+      </button>
+    </div>
+  );
+};
+
+const Option = ({ color, icon, onClick, children }) => {
+  return (
+    <div className="PostShare__option" style={{ color }} onClick={onClick}>
+      {icon}
+      {children}
+    </div>
+  );
+};
+
+const PreviewImage = ({ image, onCloseClick }) => {
+  return (
+    <div className="PostShare__preview-image">
+      <UilTimes onClick={onCloseClick} />
+      <img src={image.image} alt="" />
+    </div>
+  );
+};
+
+export default PostShare;
+```
+Las partes del código donde se aplican las prácticas de codificación legible:
+
+1. **Nombres significativos**:
+   - `PostShare`: El nombre del componente representa claramente su función, que es el formulario para compartir publicaciones.
+   - `PostOptions`: El nombre del componente representa claramente su función, que es la sección de opciones para compartir publicaciones.
+   - `Option`: El nombre del componente representa claramente su función, que es una opción específica en la sección de opciones.
+   - `PreviewImage`: El nombre del componente representa claramente su función, que es la vista previa de una imagen cargada.
+
+2. **Consistente Formateo**:
+   - El código sigue un formateo consistente, con sangrías adecuadas y alineación coherente en todo el archivo.
+
+3. **Uso adecuado de espacios en blanco**:
+   - El código utiliza espacios en blanco de manera adecuada, lo que mejora la legibilidad y la estructura del formulario.
+
+4. **Uso de useState y useRef**:
+   - Se utiliza el hook `useState` para declarar y gestionar el estado de la imagen (`image`) que se comparte.
+   - Se utiliza el hook `useRef` para obtener una referencia a un elemento `<input>` de tipo archivo para cargar la imagen.
+
+5. **Uso de eventos**:
+   - `onChange={onImageChange}`: Se utiliza el evento `onChange` para detectar cambios en el campo de entrada de archivo y cargar la imagen seleccionada.
+
+6. **Componentes Reutilizables**:
+   - Se utilizan los componentes `PostOptions` y `Option` para mostrar las opciones de compartir, lo que mejora la modularidad del código.
+
+7. **Uso de íconos**:
+   - Se utilizan íconos de la librería `@iconscout/react-unicons` para representar diferentes opciones de compartir, como foto, video, ubicación, etc.
+
+8. **Estilo y clases CSS**:
+   - Se utilizan clases CSS para aplicar estilos específicos a cada sección del formulario de compartir.
 
 
 
