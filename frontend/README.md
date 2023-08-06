@@ -1093,4 +1093,43 @@ El ISP no es aplicable directamente, ya que esta base de código utiliza princip
 5. **Principio de Inversión de Dependencias (DIP):**
 El código cumple parcialmente con el principio de DIP al depender de abstracciones a través de componentes funcionales de React. Por ejemplo, el componente "PostOptions" y "PreviewImage" son abstracciones que el componente "PostShare" utiliza sin preocuparse por los detalles internos de su implementación.
 
-Es importante tener en cuenta que estos principios se aplicaron en el contexto de componentes funcionales de React y pueden no ser evidentes en este fragmento de código aislado. La aplicación, en su totalidad, incorpora estos principios para garantizar un diseño de software más sólido y fácil de mantener. Para comprender cómo se aplican los principios SOLID de manera más completa, se recomienda revisar todo el código de la aplicación y examinar las interacciones entre los diferentes componentes.
+## 2. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
+
+Sea el codigo `Auth.jsx`
+
+
+```jsx
+
+import React from 'react'
+import FollowersCard from '../FollowersCard/FollowersCard'
+import LogoSearch from '../LogoSearch/LogoSearch'
+import ProfileCard from '../ProfileCard.jsx/ProfileCard'
+
+import "./ProfileSide.css"
+const ProfileSide = () => {
+  return (
+    <div className="ProfileSide">
+        <LogoSearch/>
+        <ProfileCard/>
+        <FollowersCard/>
+    </div>
+  )
+}
+
+export default ProfileSide
+
+```
+ A continuación, se muestra un resumen de cómo se aplican estos principios en el código:
+
+1. **Principio de responsabilidad única (Single Responsibility Principle, SRP):** El componente ProfileSide parece cumplir con el principio de responsabilidad única. Su función principal es renderizar la sección lateral de un perfil, y se encarga de mostrar el logo de búsqueda, la tarjeta de perfil y la tarjeta de seguidores. Cada uno de estos componentes se separa en módulos independientes, lo que permite que el componente ProfileSide se centre en su función principal.
+
+2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código muestra una implementación parcial del principio de abierto/cerrado. Si se desea agregar nuevos componentes o funcionalidades relacionadas con la sección lateral del perfil, se puede hacer sin modificar directamente el código del componente ProfileSide. Esto se logra mediante la adición de nuevos componentes en el lugar correspondiente dentro del componente ProfileSide.
+
+3. **Principio de sustitución de Liskov (Liskov Substitution Principle, LSP):** Dado que el código solo muestra la definición y uso de componentes de React, no hay una implementación directa del principio de sustitución de Liskov. Este principio se aplica generalmente a nivel de diseño de clases y módulos, y no es evidente en este código específico.
+
+4. **Principio de segregación de la interfaz (Interface Segregation Principle, ISP):** El código no muestra una implementación directa del principio de segregación de la interfaz. Sin embargo, dado que cada componente utilizado dentro del componente ProfileSide tiene una responsabilidad específica y se importa por separado, se puede argumentar que el principio de segregación de la interfaz se cumple implícitamente.
+
+3. **Principio de inversión de dependencia (Dependency Inversion Principle, DIP):** El código no muestra una implementación directa del principio de inversión de dependencia. Sin embargo, dado que el componente ProfileSide importa y utiliza componentes externos (LogoSearch, ProfileCard, FollowersCard) en lugar de implementarlos directamente, se puede considerar que hay un cierto grado de inversión de dependencia.
+
+
+
