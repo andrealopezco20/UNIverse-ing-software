@@ -930,6 +930,8 @@ const PreviewImage = ({ image, onCloseClick }) => {
 
 export default PostShare;
 ```
+
+
 Las partes del código donde se aplican las prácticas de codificación legible:
 
 1. **Nombres significativos**:
