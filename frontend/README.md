@@ -968,6 +968,7 @@ Las partes del código donde se aplican las prácticas de codificación legible:
 ## 1. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
 
 Sea el codigo `PostShare.jsx`
+
 ```jsx
 import React, { useState, useRef } from "react";
 import ProfileImage from "../../img/profileImg.jpg";
@@ -1073,6 +1074,8 @@ const PreviewImage = ({ image, onCloseClick }) => {
 
 export default PostShare;
 ```
+
+
 A continuación, se muestra un resumen de cómo se aplican estos principios en el código:
 
 1. **Principio de Responsabilidad Única (SRP):**
