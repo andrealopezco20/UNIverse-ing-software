@@ -962,5 +962,28 @@ Las partes del código donde se aplican las prácticas de codificación legible:
 
 
 
+# Laboratorio 11: Principios SOLID
+## 1. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
 
+Sea el codigo `PostShare.jsx`
+```jsx
 
+```
+A continuación, se muestra un resumen de cómo se aplican estos principios en el código:
+
+1. **Principio de Responsabilidad Única (SRP):**
+El componente "PostShare" cumple con el principio de SRP al tener una única responsabilidad, que es manejar la lógica para compartir un post, incluyendo el texto y las imágenes seleccionadas por el usuario.
+
+2. **Principio de Abierto/Cerrado (OCP):**
+El código sigue el principio de OCP al permitir la extensión sin modificar directamente el código existente. Se añaden nuevas funcionalidades mediante la introducción de nuevos componentes como "Option" y "PreviewImage" sin alterar el código existente.
+
+3. **Principio de Sustitución de Liskov (LSP):**
+Dado que esta aplicación está principalmente implementada utilizando componentes funcionales de React, la herencia directa de clases no es común. Por lo tanto, el principio de LSP no se aplica directamente en este contexto.
+
+4. **Principio de Segregación de Interfaces (ISP):**
+El ISP no es aplicable directamente, ya que esta base de código utiliza principalmente componentes funcionales en React, donde las interfaces tradicionales no se utilizan explícitamente.
+
+5. **Principio de Inversión de Dependencias (DIP):**
+El código cumple parcialmente con el principio de DIP al depender de abstracciones a través de componentes funcionales de React. Por ejemplo, el componente "PostOptions" y "PreviewImage" son abstracciones que el componente "PostShare" utiliza sin preocuparse por los detalles internos de su implementación.
+
+Es importante tener en cuenta que estos principios se aplicaron en el contexto de componentes funcionales de React y pueden no ser evidentes en este fragmento de código aislado. La aplicación, en su totalidad, incorpora estos principios para garantizar un diseño de software más sólido y fácil de mantener. Para comprender cómo se aplican los principios SOLID de manera más completa, se recomienda revisar todo el código de la aplicación y examinar las interacciones entre los diferentes componentes.
