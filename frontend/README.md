@@ -965,6 +965,32 @@ Las partes del código donde se aplican las prácticas de codificación legible:
 
 
 # Laboratorio 11: Principios SOLID
+
+Los principios SOLID son un conjunto de principios de diseño de software que ayudan a crear código limpio, modular y fácil de mantener. Estos principios fueron formulados por Robert C. Martin y son ampliamente utilizados en el desarrollo de software orientado a objetos.
+
+### 1. Principio de Responsabilidad Única (SRP)
+
+El Principio de Responsabilidad Única establece que una clase debe tener una única responsabilidad y solo debe cambiar por una razón. Esto significa que cada clase debe estar enfocada en realizar una tarea específica y no mezclar funcionalidades distintas.
+
+## 2. Principio de Abierto/Cerrado (OCP)
+
+El Principio de Abierto/Cerrado sugiere que las entidades de software deben estar abiertas para su extensión, pero cerradas para su modificación. En otras palabras, al agregar nuevas funcionalidades, no se debe modificar el código existente, sino extenderlo a través de nuevas clases o módulos.
+
+## 3. Principio de Sustitución de Liskov (LSP)
+
+El Principio de Sustitución de Liskov establece que las clases derivadas deben ser sustituibles por sus clases base sin afectar la funcionalidad del programa. Esto significa que los objetos de las clases derivadas deben poder utilizarse en lugar de objetos de las clases base sin provocar errores o comportamientos inesperados.
+
+## 4. Principio de Segregación de Interfaces (ISP)
+
+El Principio de Segregación de Interfaces establece que un cliente no debe verse obligado a depender de interfaces que no utiliza. En lugar de tener interfaces monolíticas, se deben crear interfaces específicas y más pequeñas para cada cliente.
+
+## 5. Principio de Inversión de Dependencias (DIP)
+
+El Principio de Inversión de Dependencias establece que los módulos de alto nivel no deben depender de módulos de bajo nivel, sino que ambos deben depender de abstracciones. Además, las abstracciones no deben depender de los detalles, sino que los detalles deben depender de las abstracciones.
+
+Siguiendo estos principios, se puede lograr un diseño de software más flexible, escalable y fácil de mantener a lo largo del tiempo.
+
+Espero que este ejemplo te sea útil para incluir los principios SOLID en tu archivo `README.md`. Recuerda que el README es una excelente forma de documentar y comunicar aspectos importantes de tu proyecto a otros desarrolladores y colaboradores.
 ## 1. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
 
 Sea el codigo `PostShare.jsx`
@@ -1076,7 +1102,7 @@ export default PostShare;
 ```
 
 
-A continuación, se muestra un resumen de cómo se aplican estos principios en el código:
+ A continuación, se muestra cómo se aplican estos principios en el código:
 
 1. **Principio de Responsabilidad Única (SRP):**
 El componente "PostShare" cumple con el principio de SRP al tener una única responsabilidad, que es manejar la lógica para compartir un post, incluyendo el texto y las imágenes seleccionadas por el usuario.
@@ -1119,17 +1145,12 @@ const ProfileSide = () => {
 export default ProfileSide
 
 ```
- A continuación, se muestra un resumen de cómo se aplican estos principios en el código:
+ A continuación, se muestra cómo se aplican estos principios en el código:
 
 1. **Principio de responsabilidad única (Single Responsibility Principle, SRP):** El componente ProfileSide parece cumplir con el principio de responsabilidad única. Su función principal es renderizar la sección lateral de un perfil, y se encarga de mostrar el logo de búsqueda, la tarjeta de perfil y la tarjeta de seguidores. Cada uno de estos componentes se separa en módulos independientes, lo que permite que el componente ProfileSide se centre en su función principal.
 
 2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código muestra una implementación parcial del principio de abierto/cerrado. Si se desea agregar nuevos componentes o funcionalidades relacionadas con la sección lateral del perfil, se puede hacer sin modificar directamente el código del componente ProfileSide. Esto se logra mediante la adición de nuevos componentes en el lugar correspondiente dentro del componente ProfileSide.
 
-3. **Principio de sustitución de Liskov (Liskov Substitution Principle, LSP):** Dado que el código solo muestra la definición y uso de componentes de React, no hay una implementación directa del principio de sustitución de Liskov. Este principio se aplica generalmente a nivel de diseño de clases y módulos, y no es evidente en este código específico.
-
-4. **Principio de segregación de la interfaz (Interface Segregation Principle, ISP):** El código no muestra una implementación directa del principio de segregación de la interfaz. Sin embargo, dado que cada componente utilizado dentro del componente ProfileSide tiene una responsabilidad específica y se importa por separado, se puede argumentar que el principio de segregación de la interfaz se cumple implícitamente.
-
-3. **Principio de inversión de dependencia (Dependency Inversion Principle, DIP):** El código no muestra una implementación directa del principio de inversión de dependencia. Sin embargo, dado que el componente ProfileSide importa y utiliza componentes externos (LogoSearch, ProfileCard, FollowersCard) en lugar de implementarlos directamente, se puede considerar que hay un cierto grado de inversión de dependencia.
 
 ## 3. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
 
@@ -1156,16 +1177,113 @@ export default Home
 
 ```
 
-
+ A continuación, se muestra cómo se aplican estos principios en el código:
 
 1. **Principio de responsabilidad única (Single Responsibility Principle, SRP):** El componente Home parece cumplir con el principio de responsabilidad única. Su función principal es renderear la página de inicio y se encarga de mostrar tres componentes: ProfileSide, PostSide y RightSide. Cada uno de estos componentes tiene una responsabilidad específica y se separa en módulos independientes, lo que permite que el componente Home se centre en su función principal.
 
 2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código muestra una implementación parcial del principio de abierto/cerrado. Si se desea agregar nuevos componentes o funcionalidades relacionadas con la página de inicio, se puede hacer sin modificar directamente el código del componente Home. Esto se logra mediante la adición de nuevos componentes en el lugar correspondiente dentro del componente Home.
 
-3. **Principio de sustitución de Liskov (Liskov Substitution Principle, LSP):** Dado que el código solo muestra la definición y uso de componentes de React, no hay una implementación directa del principio de sustitución de Liskov. Este principio se aplica generalmente a nivel de diseño de clases y módulos, y no es evidente en este código específico.
 
-4. **Principio de segregación de la interfaz (Interface Segregation Principle, ISP):** El código no muestra una implementación directa del principio de segregación de la interfaz. Sin embargo, dado que cada componente utilizado dentro del componente Home tiene una responsabilidad específica y se importa por separado, se puede argumentar que el principio de segregación de la interfaz se cumple implícitamente.
+## 4. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
 
-5. **Principio de inversión de dependencia (Dependency Inversion Principle, DIP):** El código no muestra una implementación directa del principio de inversión de dependencia. Sin embargo, dado que el componente Home importa y utiliza componentes externos (ProfileSide, PostSide, RightSide) en lugar de implementarlos directamente, se puede considerar que hay un cierto grado de inversión de dependencia.
+Sea el codigo `ProfileModal.jsx`
 
 
+```jsx
+
+import { Modal, useMantineTheme } from "@mantine/core";
+
+function ProfileModal({ modalOpened, setModalOpened }) {
+  const theme = useMantineTheme();
+
+  return (
+    <Modal
+      overlayColor={
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[9]
+          : theme.colors.gray[2]
+      }
+      overlayOpacity={0.55}
+      overlayBlur={3}
+      size="55%"
+      opened={modalOpened}
+      onClose={() => setModalOpened(false)}
+    >
+      <form className="infoForm">
+        <h3>Your info</h3>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="FirstName"
+            placeholder="First Name"
+          />
+
+          <input
+            type="text"
+            className="infoInput"
+            name="LastName"
+            placeholder="Last Name"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="worksAT"
+            placeholder="Works at"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            name="livesIN"
+            placeholder="LIves in"
+          />
+
+          <input
+            type="text"
+            className="infoInput"
+            name="Country"
+            placeholder="Country"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            className="infoInput"
+            placeholder="RelationShip Status"
+          />
+        </div>
+
+
+        <div>
+            Profile Image 
+            <input type="file" name='profileImg'/>
+            Cover Image
+            <input type="file" name="coverImg" />
+        </div>
+
+        <button className="button infoButton">Update</button>
+      </form>
+    </Modal>
+  );
+}
+
+export default ProfileModal;
+
+
+
+
+```
+
+ A continuación, se muestra cómo se aplican estos principios en el código:
+
+1. **Principio de responsabilidad única (Single Responsibility Principle, SRP):** El componente ProfileModal parece cumplir con el principio de responsabilidad única. Su función principal es renderizar un modal de perfil que muestra un formulario para actualizar la información del perfil. El componente se encarga de manejar el estado del modal y proporciona una interfaz para cerrar el modal.
+
+2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código no muestra una implementación directa del principio de abierto/cerrado. Sin embargo, el componente ProfileModal está diseñado de manera modular y se puede utilizar en diferentes partes de la aplicación sin modificar su código. Esto permite que el componente sea abierto para su extensión al agregar más funcionalidades relacionadas con el perfil en el futuro.
