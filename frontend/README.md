@@ -972,27 +972,28 @@ Los principios SOLID son un conjunto de principios de diseño de software que ay
 
 El Principio de Responsabilidad Única establece que una clase debe tener una única responsabilidad y solo debe cambiar por una razón. Esto significa que cada clase debe estar enfocada en realizar una tarea específica y no mezclar funcionalidades distintas.
 
-## 2. Principio de Abierto/Cerrado (OCP)
+### 2. Principio de Abierto/Cerrado (OCP)
 
 El Principio de Abierto/Cerrado sugiere que las entidades de software deben estar abiertas para su extensión, pero cerradas para su modificación. En otras palabras, al agregar nuevas funcionalidades, no se debe modificar el código existente, sino extenderlo a través de nuevas clases o módulos.
 
-## 3. Principio de Sustitución de Liskov (LSP)
+### 3. Principio de Sustitución de Liskov (LSP)
 
 El Principio de Sustitución de Liskov establece que las clases derivadas deben ser sustituibles por sus clases base sin afectar la funcionalidad del programa. Esto significa que los objetos de las clases derivadas deben poder utilizarse en lugar de objetos de las clases base sin provocar errores o comportamientos inesperados.
 
-## 4. Principio de Segregación de Interfaces (ISP)
+### 4. Principio de Segregación de Interfaces (ISP)
 
 El Principio de Segregación de Interfaces establece que un cliente no debe verse obligado a depender de interfaces que no utiliza. En lugar de tener interfaces monolíticas, se deben crear interfaces específicas y más pequeñas para cada cliente.
 
-## 5. Principio de Inversión de Dependencias (DIP)
+### 5. Principio de Inversión de Dependencias (DIP)
 
 El Principio de Inversión de Dependencias establece que los módulos de alto nivel no deben depender de módulos de bajo nivel, sino que ambos deben depender de abstracciones. Además, las abstracciones no deben depender de los detalles, sino que los detalles deben depender de las abstracciones.
 
 Siguiendo estos principios, se puede lograr un diseño de software más flexible, escalable y fácil de mantener a lo largo del tiempo.
 
-Espero que este ejemplo te sea útil para incluir los principios SOLID en tu archivo `README.md`. Recuerda que el README es una excelente forma de documentar y comunicar aspectos importantes de tu proyecto a otros desarrolladores y colaboradores.
-## 1. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
 
+
+## EJEMPLOS DE CODIGO IMPLEMENTADO EN FRONTEND
+### EJEMPLO 1
 Sea el codigo `PostShare.jsx`
 
 ```jsx
@@ -1119,7 +1120,7 @@ El ISP no es aplicable directamente, ya que esta base de código utiliza princip
 5. **Principio de Inversión de Dependencias (DIP):**
 El código cumple parcialmente con el principio de DIP al depender de abstracciones a través de componentes funcionales de React. Por ejemplo, el componente "PostOptions" y "PreviewImage" son abstracciones que el componente "PostShare" utiliza sin preocuparse por los detalles internos de su implementación.
 
-## 2. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
+### EJEMPLO 2
 
 Sea el codigo `Auth.jsx`
 
@@ -1151,8 +1152,7 @@ export default ProfileSide
 
 2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código muestra una implementación parcial del principio de abierto/cerrado. Si se desea agregar nuevos componentes o funcionalidades relacionadas con la sección lateral del perfil, se puede hacer sin modificar directamente el código del componente ProfileSide. Esto se logra mediante la adición de nuevos componentes en el lugar correspondiente dentro del componente ProfileSide.
 
-
-## 3. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
+### EJEMPLO 3
 
 Sea el codigo `Home.jsx`
 
@@ -1184,7 +1184,7 @@ export default Home
 2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código muestra una implementación parcial del principio de abierto/cerrado. Si se desea agregar nuevos componentes o funcionalidades relacionadas con la página de inicio, se puede hacer sin modificar directamente el código del componente Home. Esto se logra mediante la adición de nuevos componentes en el lugar correspondiente dentro del componente Home.
 
 
-## 4. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
+### EJEMPLO 4
 
 Sea el codigo `ProfileModal.jsx`
 
@@ -1278,12 +1278,13 @@ function ProfileModal({ modalOpened, setModalOpened }) {
 export default ProfileModal;
 
 
-
-
 ```
+
 
  A continuación, se muestra cómo se aplican estos principios en el código:
 
 1. **Principio de responsabilidad única (Single Responsibility Principle, SRP):** El componente ProfileModal parece cumplir con el principio de responsabilidad única. Su función principal es renderizar un modal de perfil que muestra un formulario para actualizar la información del perfil. El componente se encarga de manejar el estado del modal y proporciona una interfaz para cerrar el modal.
 
 2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código no muestra una implementación directa del principio de abierto/cerrado. Sin embargo, el componente ProfileModal está diseñado de manera modular y se puede utilizar en diferentes partes de la aplicación sin modificar su código. Esto permite que el componente sea abierto para su extensión al agregar más funcionalidades relacionadas con el perfil en el futuro.
+
+
