@@ -4,7 +4,7 @@ import "./Auth.css";
 import Logo from "../../img/logo.png";
 
 {/*Functional Style*/}
-
+//funciones de Login-Sign Up
 const Auth = () => {
   return (
     <div className="Auth">
