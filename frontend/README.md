@@ -1131,5 +1131,41 @@ export default ProfileSide
 
 3. **Principio de inversión de dependencia (Dependency Inversion Principle, DIP):** El código no muestra una implementación directa del principio de inversión de dependencia. Sin embargo, dado que el componente ProfileSide importa y utiliza componentes externos (LogoSearch, ProfileCard, FollowersCard) en lugar de implementarlos directamente, se puede considerar que hay un cierto grado de inversión de dependencia.
 
+## 3. EJEMPLO DE CODIGO IMPLEMENTADO EN FRONTEND
+
+Sea el codigo `Home.jsx`
+
+```jsx
+
+import React from 'react'
+import PostSide from '../../components/PostSide/PostSide'
+import ProfileSide from '../../components/profileSide/ProfileSide'
+import RightSide from '../../components/RightSide/RightSide'
+import './Home.css'
+const Home = () => {
+  return (
+    <div className="Home">
+        <ProfileSide/>
+        <PostSide/>
+        <RightSide/>
+    </div>
+  )
+}
+
+export default Home
+
+```
+
+
+
+1. **Principio de responsabilidad única (Single Responsibility Principle, SRP):** El componente Home parece cumplir con el principio de responsabilidad única. Su función principal es renderear la página de inicio y se encarga de mostrar tres componentes: ProfileSide, PostSide y RightSide. Cada uno de estos componentes tiene una responsabilidad específica y se separa en módulos independientes, lo que permite que el componente Home se centre en su función principal.
+
+2. **Principio de abierto/cerrado (Open/Closed Principle, OCP):** El código muestra una implementación parcial del principio de abierto/cerrado. Si se desea agregar nuevos componentes o funcionalidades relacionadas con la página de inicio, se puede hacer sin modificar directamente el código del componente Home. Esto se logra mediante la adición de nuevos componentes en el lugar correspondiente dentro del componente Home.
+
+3. **Principio de sustitución de Liskov (Liskov Substitution Principle, LSP):** Dado que el código solo muestra la definición y uso de componentes de React, no hay una implementación directa del principio de sustitución de Liskov. Este principio se aplica generalmente a nivel de diseño de clases y módulos, y no es evidente en este código específico.
+
+4. **Principio de segregación de la interfaz (Interface Segregation Principle, ISP):** El código no muestra una implementación directa del principio de segregación de la interfaz. Sin embargo, dado que cada componente utilizado dentro del componente Home tiene una responsabilidad específica y se importa por separado, se puede argumentar que el principio de segregación de la interfaz se cumple implícitamente.
+
+5. **Principio de inversión de dependencia (Dependency Inversion Principle, DIP):** El código no muestra una implementación directa del principio de inversión de dependencia. Sin embargo, dado que el componente Home importa y utiliza componentes externos (ProfileSide, PostSide, RightSide) en lugar de implementarlos directamente, se puede considerar que hay un cierto grado de inversión de dependencia.
 
 
