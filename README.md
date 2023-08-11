@@ -1,5 +1,4 @@
 # UNIverse-ing-software
-¡Por supuesto! Aquí tienes el contenido organizado con numeración para tu README:
 
 ## 1. Propósito del proyecto
 
@@ -33,13 +32,52 @@ Se incluye un diagrama que representa la arquitectura de componentes o paquetes 
 
 ## 5. Prácticas de Codificación Limpia
 
-### 5.1 Descripción
+### 5.1 Parte Implementada
 
-Se proporciona una descripción de las prácticas de codificación limpia que se aplicaron en el proyecto, explicando su importancia en la creación de un código mantenible y legible.
+#### Código Limpio en el Componente Auth
 
-### 5.2 Fragmento de Código (Evidencia)
+Este componente `Auth` en React muestra varias prácticas de Clean Code que contribuyen a la legibilidad y mantenibilidad del código.
 
-Se presenta un fragmento de código que ejemplifica la aplicación de una práctica de codificación limpia específica.
+### 1. Nombres Significativos
+
+- Los nombres de las variables y funciones son descriptivos y significativos, como `handleChange`, `handleSubmit`, `resetForm`, etc.
+
+### 2. Funciones Pequeñas y Concisas
+
+- Las funciones como `handleChange`, `handleSubmit` y `resetForm` tienen una única responsabilidad y son relativamente cortas.
+
+### 3. Comentarios y Documentación Relevante
+
+- Se usan comentarios breves para explicar partes clave del código, como el propósito de una función o una sección lógica.
+
+### 4. Formateo Consistente
+
+- El código sigue un estilo de formateo consistente, con indentación y espaciado uniformes.
+
+### 5. Eliminación de Código Duplicado
+
+- Se reutiliza el código al usar una sola función `handleChange` para manejar el cambio en varios campos de entrada.
+
+### 6. Pruebas Unitarias y Refactorización
+
+- No se muestra directamente en el código, pero el diseño modular permite pruebas unitarias más efectivas y refactorización futura.
+
+### 7. Sigue los Principios SOLID
+
+- No se muestra directamente en el código, pero el componente está dividido en funciones y se siguen principios SOLID al interactuar con el estado y ejecutar acciones.
+
+### 8. Abstracciones Significativas
+
+- El código utiliza nombres descriptivos para componentes y variables, como `Auth`, `Logo`, `infoForm`, `infoInput`, etc.
+
+## Instrucciones de Uso
+
+1. Clona el repositorio en tu máquina local.
+2. Asegúrate de tener Node.js y npm instalados.
+3. Navega a la carpeta del proyecto y ejecuta `npm install` para instalar las dependencias.
+4. Ejecuta la aplicación con `npm start`.
+
+¡Disfruta de una experiencia de desarrollo limpia y eficiente gracias al código bien estructurado y legible!
 
 ## 6. Estilos de Programación
 
