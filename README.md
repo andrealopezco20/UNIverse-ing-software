@@ -316,42 +316,6 @@ const resetShare = () => {
 12. **Uso de destructuring:**
     - Ejemplo de destructuring en el código:
 
-```jsx
-const { user } = useSelector((state) => state.authReducer.authData);
-const loading = useSelector((state) => state.postReducer.uploading);
-```
-
-import React, { useEffect } from "react";
-import { getTimelinePosts } from "../../actions/PostsAction";
-import Post from "../Post/Post";
-import { useSelector, useDispatch } from "react-redux";
-import "./Posts.css";
-import { useParams } from "react-router-dom";
-
-const Posts = () => {
-  const params = useParams()
-  const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.authReducer.authData);
-  let { posts, loading } = useSelector((state) => state.postReducer);
-  useEffect(() => {
-    dispatch(getTimelinePosts(user._id));
-  }, []);
-  if(!posts) return 'No Posts';
-  if(params.id) posts = posts.filter((post)=> post.userId===params.id)
-  return (
-    <div className="Posts">
-      {loading
-        ? "Fetching posts...."
-        : posts.map((post, id) => {
-            return <Post data={post} key={id} />;
-          })}
-    </div>
-  );
-};
-
-export default Posts;
-
-
 
 #### 5.1.5 Código Limpio en el Componente User
 
@@ -564,88 +528,9 @@ const LogoSearch = () => {
 };
 ```
 
-```jsx
-import React, { useEffect, useState } from "react";
-import "./FollowersCard.css";
-import FollowersModal from "../FollowersModal/FollowersModal";
-import { getAllUser } from "../../api/UserRequests";
-import User from "../User/User";
-import { useSelector } from "react-redux";
-const FollowersCard = ({ location }) => {
-  const [modalOpened, setModalOpened] = useState(false);
-  const [persons, setPersons] = useState([]);
-  const { user } = useSelector((state) => state.authReducer.authData);
-
-  useEffect(() => {
-    const fetchPersons = async () => {
-      const { data } = await getAllUser();
-      setPersons(data);
-    };
-    fetchPersons();
-  }, []);
-
-  return (
-    <div className="FollowersCard">
-      <h3>People you may know</h3>
-
-      {persons.map((person, id) => {
-        if (person._id !== user._id) return <User person={person} key={id} />;
-      })}
-      {!location ? (
-        <span onClick={() => setModalOpened(true)}>Show more</span>
-      ) : (
-        ""
-      )}
-
-      <FollowersModal
-        modalOpened={modalOpened}
-        setModalOpened={setModalOpened}
-      />
-    </div>
-  );
-};
-
-export default FollowersCard;
-```
 
 
 #### 5.1.9 Código Limpio en el Componente LogoSearch
-
-Sea componente `LogoSearch.jsx` de la carpeta `LogoSearch`
-
-1. **Nombres descriptivos:**
-   - `LogoSearch`, `unsalogoPrincipal` son ejemplos de nombres descriptivos.
-
-2. **Indentación y formato:**
-   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
-
-3. **Comentarios claros:**
-   - No se necesitan comentarios adicionales ya que el código es bastante legible en sí mismo.
-
-4. **Separación de preocupaciones:**
-   - El componente `LogoSearch` se encarga de mostrar el logo y la barra de búsqueda.
-
-5. **Uso adecuado de espacios en blanco:**
-   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
-
-6. **Uso de componentes externos:**
-   - Se utilizan íconos de varias bibliotecas para mostrar íconos de búsqueda.
-
-```jsx
-const LogoSearch = () => {
-  return (
-    <div className="LogoSearch">
-      <DiJqueryUiLogo className="unsalogoPrincipal" />
-      <div className="Search">
-        <input type="text" placeholder="#Explore" />
-        <div className="">
-          <BiSolidSearchAlt2 className="unsa" />
-        </div>
-      </div>
-    </div>
-  );
-};
-```
 
 
 
