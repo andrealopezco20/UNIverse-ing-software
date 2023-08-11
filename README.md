@@ -412,9 +412,240 @@ const { user } = useSelector((state) => state.authReducer.authData);
 ```
 
 
+#### 5.1.6 Código Limpio en el Componente FollowersModal
+
+Sea componente `FollowersModal.jsx` de la carpeta `FollowersModal`
+
+1. **Nombres descriptivos:**
+   - `theme`, `modalOpened`, `setModalOpened` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - No se necesitan comentarios adicionales ya que el código es bastante legible en sí mismo.
+
+4. **Separación de preocupaciones:**
+   - El componente `FollowersModal` se encarga de mostrar un modal con los seguidores.
+
+5. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+6. **Uso de propiedades:**
+   - Las propiedades `modalOpened` y `setModalOpened` se utilizan para manejar la apertura y cierre del modal.
+
+7. **Uso de componentes externos:**
+   - El componente utiliza `Modal` de la biblioteca Mantine para mostrar el modal.
+
+8. **Configuración de estilo y apariencia:**
+   - El modal tiene configuraciones de estilo y apariencia, como colores de superposición y tamaño.
+
+```jsx
+const theme = useMantineTheme();
+return (
+  <Modal
+    overlayColor={
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[9]
+        : theme.colors.gray[2]
+    }
+    overlayOpacity={0.55}
+    overlayBlur={3}
+    size="55%"
+    opened={modalOpened}
+    onClose={() => setModalOpened(false)}
+  >
+    <FollowersCard location='modal' />
+  </Modal>
+);
+```
+
+
+#### 5.1.7 Código Limpio en el Componente InfoCard
+
+Sea componente `InfoCard.jsx` de la carpeta `InfoCard`
+
+1. **Nombres descriptivos:**
+   - `dispatch`, `params`, `modalOpened`, `profileUserId`, `profileUser`, `handleLogOut` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - No se necesitan comentarios adicionales ya que el código es bastante legible en sí mismo.
+
+4. **Separación de preocupaciones:**
+   - El componente `InfoCard` se encarga de mostrar información de perfil y opciones de edición.
+
+5. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+6. **Uso de propiedades y datos:**
+   - Las propiedades `modalOpened`, `setModalOpened`, `data` se utilizan para manejar la edición del perfil.
+
+7. **Uso de componentes externos:**
+   - El componente utiliza `ProfileModal` para mostrar un modal de edición de perfil.
+
+8. **Uso de enrutamiento:**
+   - Se utiliza `useParams` para obtener el parámetro de la URL.
+
+9. **Uso de Redux:**
+   - Se utiliza `useDispatch` y `useSelector` para manejar acciones y el estado global.
+
+10. **Uso de eventos y acciones:**
+    - El evento `onClick` se utiliza para manejar la apertura del modal de edición y el cierre de sesión.
+
+11. **Uso de efectos y actualización:**
+    - Se utiliza `useEffect` para cargar los detalles del perfil del usuario y reaccionar a cambios.
+
+12. **Uso de operador ternario:**
+    - Se utiliza un operador ternario para mostrar el icono de edición y el botón de cierre de sesión.
+
+```jsx
+const theme = useMantineTheme();
+return (
+  <Modal
+    overlayColor={
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[9]
+        : theme.colors.gray[2]
+    }
+    overlayOpacity={0.55}
+    overlayBlur={3}
+    size="55%"
+    opened={modalOpened}
+    onClose={() => setModalOpened(false)}
+  >
+    <ProfileModal
+      modalOpened={modalOpened}
+      setModalOpened={setModalOpened}
+      data={user}
+    />
+  </Modal>
+);
+```
+
+
+#### 5.1.8 Código Limpio en el Componente LogoSearch
+
+Sea componente `LogoSearch.jsx` de la carpeta `LogoSearch`
+
+1. **Nombres descriptivos:**
+   - `LogoSearch`, `unsalogoPrincipal` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - No se necesitan comentarios adicionales ya que el código es bastante legible en sí mismo.
+
+4. **Separación de preocupaciones:**
+   - El componente `LogoSearch` se encarga de mostrar el logo y la barra de búsqueda.
+
+5. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+6. **Uso de componentes externos:**
+   - Se utilizan íconos de varias bibliotecas para mostrar íconos de búsqueda.
+
+```jsx
+const LogoSearch = () => {
+  return (
+    <div className="LogoSearch">
+      <DiJqueryUiLogo className="unsalogoPrincipal" />
+      <div className="Search">
+        <input type="text" placeholder="#Explore" />
+        <div className="">
+          <BiSolidSearchAlt2 className="unsa" />
+        </div>
+      </div>
+    </div>
+  );
+};
+```
+
+
+import React, { useEffect, useState } from "react";
+import "./FollowersCard.css";
+import FollowersModal from "../FollowersModal/FollowersModal";
+import { getAllUser } from "../../api/UserRequests";
+import User from "../User/User";
+import { useSelector } from "react-redux";
+const FollowersCard = ({ location }) => {
+  const [modalOpened, setModalOpened] = useState(false);
+  const [persons, setPersons] = useState([]);
+  const { user } = useSelector((state) => state.authReducer.authData);
+
+  useEffect(() => {
+    const fetchPersons = async () => {
+      const { data } = await getAllUser();
+      setPersons(data);
+    };
+    fetchPersons();
+  }, []);
+
+  return (
+    <div className="FollowersCard">
+      <h3>People you may know</h3>
+
+      {persons.map((person, id) => {
+        if (person._id !== user._id) return <User person={person} key={id} />;
+      })}
+      {!location ? (
+        <span onClick={() => setModalOpened(true)}>Show more</span>
+      ) : (
+        ""
+      )}
+
+      <FollowersModal
+        modalOpened={modalOpened}
+        setModalOpened={setModalOpened}
+      />
+    </div>
+  );
+};
+
+export default FollowersCard;
 
 
 
+#### 5.1.9 Código Limpio en el Componente LogoSearch
+
+Sea componente `LogoSearch.jsx` de la carpeta `LogoSearch`
+
+1. **Nombres descriptivos:**
+   - `LogoSearch`, `unsalogoPrincipal` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - No se necesitan comentarios adicionales ya que el código es bastante legible en sí mismo.
+
+4. **Separación de preocupaciones:**
+   - El componente `LogoSearch` se encarga de mostrar el logo y la barra de búsqueda.
+
+5. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+6. **Uso de componentes externos:**
+   - Se utilizan íconos de varias bibliotecas para mostrar íconos de búsqueda.
+
+```jsx
+const LogoSearch = () => {
+  return (
+    <div className="LogoSearch">
+      <DiJqueryUiLogo className="unsalogoPrincipal" />
+      <div className="Search">
+        <input type="text" placeholder="#Explore" />
+        <div className="">
+          <BiSolidSearchAlt2 className="unsa" />
+        </div>
+      </div>
+    </div>
+  );
+};
+```
 
 
 
