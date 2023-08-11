@@ -190,6 +190,170 @@ const { user } = useSelector((state) => state.authReducer.authData);
 ))}
 ```
 
+
+#### Código Limpio en el Componente Conversation
+
+Sea componente `Conversation.jsx` de la carpeta `Conversation`
+
+1. **Nombres descriptivos:**
+   - `data`, `currentUser`, `online`, `userData`, `dispatch`, `getUserData` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - Se incluyen comentarios que explican el propósito de las secciones clave:
+
+```jsx
+// Obtener datos del usuario y mostrar en el componente de conversación
+useEffect(() => {
+  const userId = data.members.find((id) => id !== currentUser);
+  
+  const getUserData = async () => {
+    try {
+      const { data } = await getUser(userId);
+      setUserData(data);
+      dispatch({ type: "SAVE_USER", data: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getUserData();
+}, []);
+```
+
+4. **Separación de preocupaciones:**
+   - El efecto `useEffect` se utiliza para separar la lógica de obtención de datos del usuario y el dispatch de Redux.
+
+5. **Reutilización de código:**
+   - Se reutiliza el estado `userData` para manejar los datos del usuario y evitar la duplicación.
+
+6. **Evitar redundancia:**
+   - La imagen de perfil predeterminada se maneja de manera coherente, ya sea con una imagen personalizada o una imagen predeterminada.
+
+7. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+8. **Uso de operador ternario:**
+   - Se utiliza un operador ternario para mostrar el estado en línea del usuario:
+
+```jsx
+<span style={{ color: online ? "#51e200" : "" }}>
+  {online ? "Online" : "Offline"}
+</span>
+```
+
+9. **Manejo de propiedades:**
+   - Las propiedades `data`, `currentUser` y `online` se manejan de manera adecuada y se utilizan en el componente.
+
+10. **Uso de destructuring:**
+    - Ejemplo de destructuring en el código:
+
+```jsx
+const { data } = await getUser(userId);
+```
+
+11. **Envolvimiento adecuado:**
+    - El componente `Conversation` está envuelto en un fragment para evitar elementos adicionales en el DOM.
+   
+
+
+
+#### Código Limpio en el Componente PostShare
+
+Sea componente `PostShare.jsx` de la carpeta `PostShare`
+
+1. **Nombres descriptivos:**
+   - `dispatch`, `user`, `loading`, `image`, `desc`, `serverPublic`, `onImageChange`, `imageRef`, `handleUpload`, `resetShare` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - Los comentarios en línea explican el propósito de algunas funciones y secciones:
+
+```jsx
+// handle Image Change
+const onImageChange = (event) => {
+  if (event.target.files?.[0]) {
+    let img = event.target.files[0];
+    setImage(img);
+  }
+};
+
+// Reset Post Share
+const resetShare = () => {
+  setImage(null);
+  desc.current.value = "";
+};
+```
+
+4. **Separación de preocupaciones:**
+   - El componente `PostShare` se encarga de la interfaz de usuario y la lógica de carga de publicaciones.
+
+5. **Reutilización de código:**
+   - La lógica de reseteo se coloca en una función `resetShare` para evitar duplicación.
+
+6. **Evitar redundancia:**
+   - Se evita la redundancia en el manejo del estado de la imagen y el campo de descripción.
+
+7. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+8. **Uso de iconos:**
+   - Se utilizan iconos para representar diferentes opciones de publicación.
+
+9. **Uso de eventos y acciones:**
+   - Los eventos `onClick` y `onChange` se utilizan para manejar la interacción del usuario.
+
+10. **Manejo de propiedades:**
+    - Se manejan las propiedades `user` y `loading` utilizando `useSelector`.
+
+11. **Uso de formularios:**
+    - Se utiliza un formulario para recopilar la información de la publicación.
+
+12. **Uso de destructuring:**
+    - Ejemplo de destructuring en el código:
+
+```jsx
+const { user } = useSelector((state) => state.authReducer.authData);
+const loading = useSelector((state) => state.postReducer.uploading);
+```
+
+import React, { useEffect } from "react";
+import { getTimelinePosts } from "../../actions/PostsAction";
+import Post from "../Post/Post";
+import { useSelector, useDispatch } from "react-redux";
+import "./Posts.css";
+import { useParams } from "react-router-dom";
+
+const Posts = () => {
+  const params = useParams()
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.authReducer.authData);
+  let { posts, loading } = useSelector((state) => state.postReducer);
+  useEffect(() => {
+    dispatch(getTimelinePosts(user._id));
+  }, []);
+  if(!posts) return 'No Posts';
+  if(params.id) posts = posts.filter((post)=> post.userId===params.id)
+  return (
+    <div className="Posts">
+      {loading
+        ? "Fetching posts...."
+        : posts.map((post, id) => {
+            return <Post data={post} key={id} />;
+          })}
+    </div>
+  );
+};
+
+export default Posts;
+
+
+
+
 ## 6. Estilos de Programación
 
 ### 6.1 Descripción
