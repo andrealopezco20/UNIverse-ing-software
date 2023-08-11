@@ -355,7 +355,7 @@ export default Posts;
 
 #### 5.1.5 Código Limpio en el Componente User
 
-Sea componente `User.jsx` de la carpeta `Users`
+Sea componente `User.jsx` de la carpeta `User`
 
 1. **Nombres descriptivos:**
    - `publicFolder`, `user`, `dispatch`, `following`, `handleFollow` son ejemplos de nombres descriptivos.
