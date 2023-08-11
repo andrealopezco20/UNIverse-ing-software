@@ -538,7 +538,7 @@ const LogoSearch = () => {
 
 ### 6.1 Descripción
 
-Se describe el enfoque y los estilos de programación utilizados en el proyecto, destacando cómo contribuyen a la coherencia y eficiencia del código.
+Se va a describir el enfoque y los estilos de programación utilizados en el proyecto, destacando cómo contribuyen a la coherencia y eficiencia del código.
 
 ### 6.2 Fragmento de Código (Evidencia)
 
