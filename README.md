@@ -606,7 +606,7 @@ const FollowersCard = ({ location }) => {
 };
 
 export default FollowersCard;
-
+```
 
 
 #### 5.1.9 Código Limpio en el Componente LogoSearch
