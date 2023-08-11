@@ -34,7 +34,7 @@ Se incluye un diagrama que representa la arquitectura de componentes o paquetes 
 
 ### 5.1 Parte Implementada en el Proyecto
 
-#### Código Limpio en el Componente Auth
+#### 5.1.1 Código Limpio en el Componente Auth
 
 Sea componente `Auth.jsx` de la carpeta `Auth`
 
@@ -106,7 +106,7 @@ const loading = useSelector((state) => state.authReducer.loading);
 </span>
 ```
 
-#### Código Limpio en el Componente Chat
+#### 5.1.2 Código Limpio en el Componente Chat
 
 Sea componente `Chat.jsx` de la carpeta `Chat`
 
@@ -191,7 +191,7 @@ const { user } = useSelector((state) => state.authReducer.authData);
 ```
 
 
-#### Código Limpio en el Componente Conversation
+#### 5.1.3 Código Limpio en el Componente Conversation
 
 Sea componente `Conversation.jsx` de la carpeta `Conversation`
 
@@ -260,7 +260,7 @@ const { data } = await getUser(userId);
 
 
 
-#### Código Limpio en el Componente PostShare
+#### 5.1.4 Código Limpio en el Componente PostShare
 
 Sea componente `PostShare.jsx` de la carpeta `PostShare`
 
@@ -350,6 +350,70 @@ const Posts = () => {
 };
 
 export default Posts;
+
+
+
+#### 5.1.5 Código Limpio en el Componente User
+
+Sea componente `User.jsx` de la carpeta `Users`
+
+1. **Nombres descriptivos:**
+   - `publicFolder`, `user`, `dispatch`, `following`, `handleFollow` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - Los comentarios en línea explican el propósito de algunas secciones del código:
+
+```jsx
+// Manejo del estado de seguir / no seguir y envío a Redux
+const handleFollow = () => {
+  following
+    ? dispatch(unfollowUser(person._id, user))
+    : dispatch(followUser(person._id, user));
+  setFollowing((prev) => !prev);
+};
+```
+
+4. **Separación de preocupaciones:**
+   - El componente `User` se encarga de mostrar información de un usuario y gestionar el seguimiento.
+
+5. **Reutilización de código:**
+   - Se reutiliza la lógica para manejar el estado de "following" en la función `handleFollow`.
+
+6. **Evitar redundancia:**
+   - Se evita la redundancia en la construcción de la URL de la imagen de perfil.
+
+7. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+8. **Uso de propiedades y datos:**
+   - La propiedad `person` se utiliza para mostrar la información del usuario.
+
+9. **Uso de botones y eventos:**
+   - El evento `onClick` se utiliza para manejar el seguimiento y no seguimiento del usuario.
+
+10. **Uso de estados y actualización:**
+    - El estado `following` se utiliza para reflejar el estado actual de seguimiento.
+
+11. **Uso de destructuring:**
+    - Ejemplo de destructuring en el código:
+
+```jsx
+const { user } = useSelector((state) => state.authReducer.authData);
+```
+
+12. **Uso de operador ternario:**
+    - Se utiliza un operador ternario para determinar el texto del botón de seguimiento:
+
+```jsx
+{following ? "Unfollow" : "Follow"}
+```
+
+
+
+
 
 
 
