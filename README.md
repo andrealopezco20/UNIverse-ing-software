@@ -564,7 +564,7 @@ const LogoSearch = () => {
 };
 ```
 
-
+```jsx
 import React, { useEffect, useState } from "react";
 import "./FollowersCard.css";
 import FollowersModal from "../FollowersModal/FollowersModal";
