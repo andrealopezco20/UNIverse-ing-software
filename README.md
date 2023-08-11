@@ -32,12 +32,11 @@ Se incluye un diagrama que representa la arquitectura de componentes o paquetes 
 
 ## 5. Prácticas de Codificación Limpia
 
-### 5.1 Parte Implementada
+### 5.1 Parte Implementada en el Proyecto
 
 #### Código Limpio en el Componente Auth
 
 Sea componente `Auth.jsx` de la carpeta `Auth`
-¡Por supuesto! Aquí están los fragmentos del código donde se aplican algunas de las prácticas de Clean Code que mencioné:
 
 1. **Nombres descriptivos:**
    - `handleChange`, `handleSubmit`, `resetForm`, `loading`, `confirmPass`, `isSignUp` son ejemplos de nombres descriptivos.
@@ -107,7 +106,89 @@ const loading = useSelector((state) => state.authReducer.loading);
 </span>
 ```
 
-Estos son solo algunos ejemplos en los que se aplican las prácticas de Clean Code en el fragmento de código que proporcionaste. Cada una de estas prácticas contribuye a mejorar la legibilidad, el mantenimiento y la colaboración en el código.
+#### Código Limpio en el Componente Chat
+
+Sea componente `Chat.jsx` de la carpeta `Chat`
+
+1. **Nombres descriptivos:**
+   - `socket`, `chats`, `onlineUsers`, `currentChat`, `sendMessage`, `receivedMessage` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - Los comentarios en línea explican las funciones de cada bloque de código:
+
+```jsx
+// Get the chat in chat section
+useEffect(() => {
+  const getChats = async () => {
+    try {
+      const { data } = await userChats(user._id);
+      setChats(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  getChats();
+}, [user._id]);
+
+// Connect to Socket.io
+useEffect(() => {
+  socket.current = io("ws://localhost:8800");
+  socket.current.emit("new-user-add", user._id);
+  socket.current.on("get-users", (users) => {
+    setOnlineUsers(users);
+  });
+}, [user]);
+```
+
+4. **Separación de preocupaciones:**
+   - Las funciones `checkOnlineStatus`, `handleChatClick`, `handleSendMessage` tienen responsabilidades bien definidas.
+
+5. **Reutilización de código:**
+   - La función `checkOnlineStatus` se encarga de verificar el estado en línea de un miembro del chat.
+
+6. **Evitar redundancia:**
+   - Se utiliza el estado `sendMessage` para evitar el envío de mensajes innecesarios al servidor.
+
+7. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las partes de la interfaz izquierda y derecha.
+
+8. **Uso de destructuring:**
+   - Ejemplo de destructuring en el código:
+
+```jsx
+const { user } = useSelector((state) => state.authReducer.authData);
+```
+
+9. **Manejo de eventos:**
+   - Los manejadores de eventos `onClick` se utilizan para gestionar la interacción del usuario:
+
+```jsx
+<Conversation
+  data={chat}
+  currentUser={user._id}
+  online={checkOnlineStatus(chat)}
+  onClick={() => handleChatClick(chat)}
+/>
+```
+
+10. **Uso de `map` para generar elementos:**
+    - Se utiliza el método `map` para generar elementos en la lista de chats:
+
+```jsx
+{chats.map((chat) => (
+  <div key={chat.id} onClick={() => handleChatClick(chat)}>
+    <Conversation
+      data={chat}
+      currentUser={user._id}
+      online={checkOnlineStatus(chat)}
+    />
+  </div>
+))}
+```
 
 ## 6. Estilos de Programación
 
