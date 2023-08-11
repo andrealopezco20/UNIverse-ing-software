@@ -530,8 +530,66 @@ const LogoSearch = () => {
 
 
 
-#### 5.1.9 Código Limpio en el Componente LogoSearch
+#### 5.1.9 Código Limpio en el Componente ChatBox
 
+Sea componente `ChatBox.jsx` de la carpeta `ChatBox`
+
+1. **Nombres descriptivos:**
+   - `userData`, `messages`, `newMessage`, `handleChange`, `scroll`, `imageRef`, `handleSend` son ejemplos de nombres descriptivos.
+
+2. **Indentación y formato:**
+   - El código mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
+
+3. **Comentarios claros:**
+   - Los comentarios en línea explican el propósito de algunas secciones del código:
+
+```jsx
+// Always scroll to last Message
+useEffect(() => {
+  scroll.current?.scrollIntoView({ behavior: "smooth" });
+}, [messages]);
+
+// Receive Message from parent component
+useEffect(() => {
+  if (receivedMessage !== null && receivedMessage.chatId === chat._id) {
+    setMessages([...messages, receivedMessage]);
+  }
+}, [receivedMessage]);
+```
+
+4. **Separación de preocupaciones:**
+   - El componente `ChatBox` se encarga de mostrar la conversación y gestionar el envío y recepción de mensajes.
+
+5. **Reutilización de código:**
+   - La lógica de manejo de mensajes y actualización de estados se coloca en funciones separadas.
+
+6. **Evitar redundancia:**
+   - Se evita la redundancia en la construcción de la URL de la imagen de perfil.
+
+7. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad.
+
+8. **Uso de ciclos y listas:**
+   - El componente utiliza el método `map` para iterar y mostrar cada mensaje en la conversación.
+
+9. **Uso de estados y actualización:**
+   - Los estados `messages` y `newMessage` se utilizan para manejar la conversación y la entrada de texto.
+
+10. **Uso de eventos y acciones:**
+    - Los eventos `onChange`, `onClick` se utilizan para manejar la interacción del usuario.
+
+11. **Uso de destructuring:**
+    - Ejemplo de destructuring en el código:
+
+```jsx
+const { user } = useSelector((state) => state.authReducer.authData);
+```
+
+12. **Uso de componentes externos:**
+    - El componente utiliza `InputEmoji` para manejar la entrada de texto con emojis.
+
+13. **Manejo de referencias:**
+    - Se utilizan referencias `scroll` y `imageRef` para manejar el desplazamiento y la carga de imágenes.
 
 
 ## 6. Estilos de Programación
