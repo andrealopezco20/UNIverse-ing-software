@@ -36,48 +36,78 @@ Se incluye un diagrama que representa la arquitectura de componentes o paquetes 
 
 #### Código Limpio en el Componente Auth
 
-Este componente `Auth` en React muestra varias prácticas de Clean Code que contribuyen a la legibilidad y mantenibilidad del código.
+Sea componente `Auth.jsx` de la carpeta `Auth`
+¡Por supuesto! Aquí están los fragmentos del código donde se aplican algunas de las prácticas de Clean Code que mencioné:
 
-### 1. Nombres Significativos
+1. **Nombres descriptivos:**
+   - `handleChange`, `handleSubmit`, `resetForm`, `loading`, `confirmPass`, `isSignUp` son ejemplos de nombres descriptivos.
 
-- Los nombres de las variables y funciones son descriptivos y significativos, como `handleChange`, `handleSubmit`, `resetForm`, etc.
+2. **Indentación y formato:**
+   - El código en general mantiene una estructura de indentación consistente y utiliza espacios en blanco de manera efectiva.
 
-### 2. Funciones Pequeñas y Concisas
+3. **Comentarios claros:**
+   - Los comentarios en línea que explican qué hace cada sección de código:
 
-- Las funciones como `handleChange`, `handleSubmit` y `resetForm` tienen una única responsabilidad y son relativamente cortas.
+```javascript
+// handle Change in input
+const handleChange = (e) => {
+  setData({ ...data, [e.target.name]: e.target.value });
+};
 
-### 3. Comentarios y Documentación Relevante
+// Form Submission
+const handleSubmit = (e) => {
+  setConfirmPass(true);
+  e.preventDefault();
+  if (isSignUp) {
+    data.password === data.confirmpass
+      ? dispatch(signUp(data, navigate))
+      : setConfirmPass(false);
+  } else {
+    dispatch(logIn(data, navigate));
+  }
+};
+```
 
-- Se usan comentarios breves para explicar partes clave del código, como el propósito de una función o una sección lógica.
+4. **Separación de preocupaciones:**
+   - Cada función tiene una responsabilidad específica y está bien definida en su propósito, como `handleChange`, `handleSubmit`, `resetForm`, etc.
 
-### 4. Formateo Consistente
+5. **Reutilización de código:**
+   - El estado `data` se utiliza para manejar los datos del formulario en lugar de repetir los campos.
 
-- El código sigue un estilo de formateo consistente, con indentación y espaciado uniformes.
+6. **Evitar redundancia:**
+   - La función `resetForm` restablece los datos y el estado de confirmación de contraseña.
 
-### 5. Eliminación de Código Duplicado
+7. **Uso adecuado de espacios en blanco:**
+   - El código utiliza espacios en blanco para separar visualmente las secciones lógicas y mejorar la legibilidad en varias partes.
 
-- Se reutiliza el código al usar una sola función `handleChange` para manejar el cambio en varios campos de entrada.
+8. **Uso de destructuring:**
+   - Ejemplos de destructuring en el código:
 
-### 6. Pruebas Unitarias y Refactorización
+```javascript
+const loading = useSelector((state) => state.authReducer.loading);
+```
 
-- No se muestra directamente en el código, pero el diseño modular permite pruebas unitarias más efectivas y refactorización futura.
+9. **Manejo de eventos:**
+   - Los manejadores de eventos `onChange` y `onClick` se utilizan para gestionar la interacción del usuario.
 
-### 7. Sigue los Principios SOLID
+10. **Ternarios para claridad:**
+    - Se utiliza un operador ternario para mostrar el mensaje de error de confirmación de contraseña:
 
-- No se muestra directamente en el código, pero el componente está dividido en funciones y se siguen principios SOLID al interactuar con el estado y ejecutar acciones.
+```javascript
+<span
+  style={{
+    color: "red",
+    fontSize: "12px",
+    alignSelf: "flex-end",
+    marginRight: "5px",
+    display: confirmPass ? "none" : "block",
+  }}
+>
+  *Confirm password is not same
+</span>
+```
 
-### 8. Abstracciones Significativas
-
-- El código utiliza nombres descriptivos para componentes y variables, como `Auth`, `Logo`, `infoForm`, `infoInput`, etc.
-
-## Instrucciones de Uso
-
-1. Clona el repositorio en tu máquina local.
-2. Asegúrate de tener Node.js y npm instalados.
-3. Navega a la carpeta del proyecto y ejecuta `npm install` para instalar las dependencias.
-4. Ejecuta la aplicación con `npm start`.
-
-¡Disfruta de una experiencia de desarrollo limpia y eficiente gracias al código bien estructurado y legible!
+Estos son solo algunos ejemplos en los que se aplican las prácticas de Clean Code en el fragmento de código que proporcionaste. Cada una de estas prácticas contribuye a mejorar la legibilidad, el mantenimiento y la colaboración en el código.
 
 ## 6. Estilos de Programación
 
